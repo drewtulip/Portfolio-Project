@@ -1,0 +1,24 @@
+/* Flower border down both edges of the page. */
+
+body { position: relative; }   /* lets the borders span the whole page height */
+
+.edge {
+  position: absolute;          /* scrolls with the page. Use "fixed" to keep it on screen instead */
+  top: 0;
+  bottom: 0;
+  width: 50px;                /* size of each flower: make it bigger or smaller here */
+  background: url("images/flower-edge.svg") repeat-y;
+  background-size: 100% auto;
+  pointer-events: none;        /* clicks pass through to your page */
+  z-index: 0;
+}
+.edge-left  { left: 0;  background-position: left top; }
+.edge-right { right: 0; background-position: right top; }
+
+/* Keep your content above the flowers */
+.site-header, main { position: relative; z-index: 1; }
+
+/* Hide the borders on narrow screens so they don't crowd your content */
+@media (max-width: 800px) {
+  .edge { display: none; }
+}
