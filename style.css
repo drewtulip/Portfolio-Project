@@ -67,6 +67,7 @@ p {
   opacity: 0.6;
 }
 
+/* ---------- Intro banner ---------- */
 .intro-banner {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -83,20 +84,35 @@ p {
   margin-bottom: 1.5rem;
 }
 
+/* ---------- Button (single definition) ---------- */
 .btn {
+  position: relative;
   display: inline-block;
-  padding: 0.8rem 1.3rem;
-  border: 1px solid var(--border);
+  padding: 0.85rem 1.6rem;
   background: var(--panel);
   color: var(--ink);
   text-decoration: none;
+  font-family: "Fraunces", serif;
   font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  transform: rotate(-0.6deg);
+  box-shadow: 4px 4px 0 var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .btn:hover {
-  background: var(--accent);
-  color: var(--ink);
+  transform: rotate(0deg) translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--border);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--border);
 }
 
 /* ---------- Main content wrapper ---------- */
@@ -109,7 +125,7 @@ p {
   gap: 28px;
 }
 
-/* ---------- About section (matches your actual HTML) ---------- */
+/* ---------- About section ---------- */
 .about {
   padding: 20px 0;
 }
@@ -134,8 +150,105 @@ p {
   flex-shrink: 0;
 }
 
-/* ---------- Projects & Skills placeholders ---------- */
-.projects, .skills {
+/* ---------- Projects ---------- */
+.projects {
+  padding: 32px 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 24px;
+  background: var(--panel);
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* alternate slight tilt per card, like hand-placed prints */
+.project-card:nth-child(odd) {
+  transform: rotate(-0.7deg);
+}
+
+.project-card:nth-child(even) {
+  transform: rotate(0.6deg);
+}
+
+.project-card:hover {
+  transform: rotate(0deg) translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--border);
+}
+
+/* small corner accent mark, like folk-art stamped corners */
+.project-card::before {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.project-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: "Fraunces", serif;
+  color: var(--ink-soft);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.project-card p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.project-meta {
+  margin-top: auto;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.project-btn {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-family: "Fraunces", serif;
+  color: var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+/* Optional: use this class on any card that isn't ready to link to yet */
+.project-card--wip {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.project-card--wip:hover {
+  transform: none;
+  box-shadow: 5px 5px 0 var(--border);
+}
+
+/* ---------- Skills placeholder ---------- */
+.skills {
   padding: 32px 0;
 }
 
@@ -150,8 +263,92 @@ p {
     height: auto;
     aspect-ratio: 3 / 4;
   }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+/* ---------- Leadership (editorial photo-row style, distinct from Projects) ---------- */
+.leadership {
+  padding: 32px 0;
+}
+
+.leadership-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.leadership-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.leadership-row:first-child {
+  padding-top: 0;
+}
+
+.leadership-row:last-child {
+  border-bottom: none;
+}
+
+.leadership-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.leadership-text {
+  flex: 1;
+}
+
+.leadership-org {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.leadership-text h3 {
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.leadership-text p {
+  font-size: 0.92rem;
+  margin: 0 0 8px;
+  max-width: 56ch;
+}
+
+.leadership-dates {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .leadership-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .leadership-photo {
+    width: 72px;
+    height: 72px;
+  }
 }
