@@ -255,10 +255,10 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   .case-top .ph { aspect-ratio: 16 / 5; order: -1; }
 }
 
-/* ---------- Cursor: simple red arrow, black over clickable things ---------- */
-html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cpath d=%22M4 3L4 20L9 15.5L12.5 23L15.5 21.6L12 14.3L19 14.3Z%22 fill=%22%23c4271f%22 stroke=%22%23f5ebd7%22 stroke-width=%221.6%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") 4 3, auto; }
+/* ---------- Cursor: small red dot, bigger black dot over clickable things ---------- */
+html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Ccircle cx=%2210.0%22 cy=%2210.0%22 r=%226%22 fill=%22%23c4271f%22 stroke=%22%23f5ebd7%22 stroke-width=%222%22/%3E%3C/svg%3E") 10 10, auto; }
 a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cpath d=%22M4 3L4 20L9 15.5L12.5 23L15.5 21.6L12 14.3L19 14.3Z%22 fill=%22%231f1b16%22 stroke=%22%23f5ebd7%22 stroke-width=%221.6%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") 4 3, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 28 28%22%3E%3Ccircle cx=%2214.0%22 cy=%2214.0%22 r=%229%22 fill=%22%231f1b16%22 stroke=%22%23f5ebd7%22 stroke-width=%222%22/%3E%3C/svg%3E") 14 14, pointer;
 }
 
 /* ---------- "Click to open" hint on the envelope ---------- */
