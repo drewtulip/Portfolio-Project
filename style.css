@@ -15,7 +15,7 @@
   --gray: #6b6254;    /* captions on cream */
 
   --ph: #d9d9d9;     /* placeholder grey (from your Figma) */
-  --sidebar: 290px;
+  --sidebar: 230px;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "EB Garamond", Georgia, serif;
   --font-ui: "Work Sans", system-ui, sans-serif; /* easy-to-read sans for the sidebar */
@@ -64,7 +64,8 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   display: block;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 5.6rem;
+  font-size: 4.6rem;
+  white-space: nowrap;
   line-height: 1;
   text-decoration: none;
   text-align: left;
@@ -110,8 +111,42 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   padding: 0 3rem 3rem 2rem;
 }
 .hero .ph { aspect-ratio: 1414 / 2000; }
-.hero-art { aspect-ratio: 1414 / 2000; overflow: hidden; background: var(--ink); }
-.hero-art img { width: 100%; height: 100%; object-fit: cover; }
+.hero-toggle { border: 0; padding: 0; cursor: pointer; font: inherit; }
+.hero-toggle:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+
+/* ---------- Balloon lift ---------- */
+.hero-art {
+  position: relative;
+  aspect-ratio: 1414 / 2000;
+  overflow: hidden;
+  background: var(--ink);
+}
+.hero-art .night-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* balloon layer sits exactly where the balloon is in the full picture */
+.hero-art .balloon {
+  position: absolute;
+  left: 26.874%; top: 45.250%; width: 48.091%; height: 47.750%;
+  transition: transform 1.1s cubic-bezier(.3, .7, .3, 1);
+}
+.hero-art.lifted .balloon { transform: translateY(-12%); }
+
+.air-line {
+  position: absolute; width: 2.4%; height: 10%;
+  fill: none; stroke: var(--cream); stroke-width: 3; stroke-linecap: round;
+  vector-effect: non-scaling-stroke; overflow: visible;
+  opacity: 0;
+}
+.air-line path { vector-effect: non-scaling-stroke; }
+.hero-art.lifted .air-line { animation: air-rise 2.2s ease-out infinite; }
+@keyframes air-rise {
+  0%   { opacity: 0;  transform: translateY(35%); }
+  25%  { opacity: 1; }
+  100% { opacity: 0;  transform: translateY(-300%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .balloon { transition: none; }
+  .hero-art.lifted .air-line { animation: none; opacity: .6; }
+}
 
 .stitch-top {
   height: 12px; margin: .25rem 0 1.25rem;
@@ -121,11 +156,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 
 .selected {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 1.5rem;
   padding: 2rem 3rem 3rem 2rem;
 }
-.selected h2 { font-size: 2.8rem; }
+.selected h2 { font-size: 2.6rem; }
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
