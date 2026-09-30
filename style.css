@@ -15,7 +15,7 @@
   --gray: #6b6254;    /* captions on cream */
 
   --ph: #d9d9d9;     /* placeholder grey (from your Figma) */
-  --sidebar: 230px;
+  --sidebar: 290px;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "EB Garamond", Georgia, serif;
   --font-ui: "Work Sans", system-ui, sans-serif; /* easy-to-read sans for the sidebar */
@@ -64,7 +64,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   display: block;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 4.2rem;
+  font-size: 5.6rem;
   line-height: 1;
   text-decoration: none;
   text-align: left;
@@ -121,11 +121,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 
 .selected {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 1.5rem;
   padding: 2rem 3rem 3rem 2rem;
 }
-.selected h2 { font-size: 1.9rem; }
+.selected h2 { font-size: 2.8rem; }
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,7 +163,8 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .footer-band {
   background: var(--cream);
   color: var(--ink);
-  padding: 2.5rem 2rem 1rem;
+  padding: 3rem 2rem 1.25rem;
+  width: 100%;
 }
 .footer-band .ph { width: min(330px, 70%); aspect-ratio: 2 / 1; margin: 0 auto; }
 .footer-band a { display: block; text-align: right; font-family: system-ui, sans-serif; font-size: .8rem; margin-top: 3rem; text-decoration: none; }
@@ -174,7 +175,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   .page { grid-template-columns: 1fr; }
   .sidebar { text-align: left; padding: 1.5rem 1.25rem 0; }
   .sidebar::after { display: none; }
-  .wordmark { font-size: 3rem; display: inline-block; }
+  .wordmark { font-size: 4rem; display: inline-block; }
   .tulip { display: none; }
   .topnav { justify-content: flex-start; padding: 1rem 1.25rem .5rem; }
   .content, .hero, .selected { padding-inline: 1.25rem; }
