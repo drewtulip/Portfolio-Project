@@ -281,9 +281,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 @keyframes hint-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .env-hint { animation: none; } }
 
-/* ---------- Live time + weather (sidebar) ---------- */
+/* ---------- Live time (sidebar) ---------- */
 .local { margin: 1.25rem 0 0; font-size: .85rem; line-height: 1.4; }
 .local span { display: block; }
-.local-place { color: var(--pink); }
 .local-time { font-weight: 600; font-size: 1.05rem; }
-.local-weather { color: var(--pink); }
