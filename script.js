@@ -51,69 +51,13 @@ if (toggle && video && night) {
   });
 }
 
-// ---------- Live time + weather in the sidebar (the visitor's own) ----------
-// Time uses the visitor's device clock. Weather uses their approximate location,
-// looked up from their IP address (no permission pop-up), then Open-Meteo (free, no key).
-// If the lookup fails it falls back to FALLBACK below.
-const FALLBACK = { name: "Dallas, TX", lat: 32.7767, lon: -96.7970 };
-
+// ---------- Live time in the sidebar (the visitor's own clock) ----------
 const timeEl = document.querySelector("[data-time]");
-const weatherEl = document.querySelector("[data-weather]");
-const placeEl = document.querySelector("[data-place]");
 
 function tickClock() {
   if (!timeEl) return;
   timeEl.textContent = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 }
 
-const WEATHER_TEXT = {
-  0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Overcast",
-  45: "Foggy", 48: "Foggy",
-  51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
-  56: "Freezing drizzle", 57: "Freezing drizzle",
-  61: "Light rain", 63: "Rain", 65: "Heavy rain",
-  66: "Freezing rain", 67: "Freezing rain",
-  71: "Light snow", 73: "Snow", 75: "Heavy snow", 77: "Snow grains",
-  80: "Rain showers", 81: "Rain showers", 82: "Heavy showers",
-  85: "Snow showers", 86: "Snow showers",
-  95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
-};
-
-async function findVisitor() {
-  try {
-    const res = await fetch("https://ipwho.is/?fields=success,city,region_code,latitude,longitude");
-    const d = await res.json();
-    if (!d.success) throw new Error("lookup failed");
-    const name = [d.city, d.region_code].filter(Boolean).join(", ");
-    return { name, lat: d.latitude, lon: d.longitude };
-  } catch {
-    return FALLBACK;
-  }
-}
-
-async function loadWeather(place) {
-  if (!weatherEl) return;
-  const url = "https://api.open-meteo.com/v1/forecast" +
-    `?latitude=${place.lat}&longitude=${place.lon}` +
-    "&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=auto";
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(res.status);
-    const { current } = await res.json();
-    const text = WEATHER_TEXT[current.weather_code] || "";
-    weatherEl.textContent = `${Math.round(current.temperature_2m)}°F${text ? " · " + text : ""}`;
-  } catch {
-    weatherEl.textContent = "";   // quietly hide if offline
-  }
-}
-
-async function startLocal() {
-  tickClock();
-  setInterval(tickClock, 1000);
-  const place = await findVisitor();
-  if (placeEl) placeEl.textContent = place.name;
-  loadWeather(place);
-  setInterval(() => loadWeather(place), 10 * 60 * 1000);
-}
-
-startLocal();
+tickClock();
+setInterval(tickClock, 1000);
