@@ -2,6 +2,7 @@
 // second later the page glides down to Selected Projects. Click again to reset.
 const LIFT_MS = 1400;   // matches the balloon transition in style.css
 const PAUSE_MS = 1000;  // wait after the lift before scrolling
+const LIFT_AT = 1.8;    // seconds into the video when the letter is in place; balloon starts here
 
 const toggle = document.getElementById("lift-toggle");
 const video = document.getElementById("envelope");
@@ -11,6 +12,7 @@ let scrollTimer;
 let playing = false;
 
 function liftBalloon() {
+  if (night.classList.contains("lifted")) return;
   night.classList.add("lifted");
   toggle.setAttribute("aria-pressed", "true");
   if (!projects) return;
@@ -30,6 +32,9 @@ function reset() {
 }
 
 if (toggle && video && night) {
+  video.addEventListener("timeupdate", () => {
+    if (playing && video.currentTime >= LIFT_AT) liftBalloon();
+  });
   video.addEventListener("ended", () => {
     playing = false;
     liftBalloon();
