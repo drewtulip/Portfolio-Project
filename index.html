@@ -6,103 +6,64 @@
   <title>Drew — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="page">
+  <!-- Sidebar (same on every page) -->
+  <aside class="sidebar">
+    <a class="wordmark" href="index.html">Drew</a>
+    <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
+    <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
+    <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
+    <svg class="tulip" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 4 C30 12 40 10 44 6 C46 22 40 34 28 36 L28 50 L20 50 L20 36 C8 34 2 22 4 6 C8 10 18 12 24 4 Z"/></svg>
+  </aside>
 
-  <!-- Navigation -->
-  <header class="site-header">
-    <div class="container">
-      <a class="logo" href="#top">Drew</a>
-      <nav class="nav" aria-label="Main">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  <main id="top">
+    <div class="stitch-top"></div>
 
-    <!-- Hero -->
-    <section class="section hero">
-      <div class="container">
-        <div>
-          <h1>Hi, I'm Drew.</h1>
-          <p>A short line about what you make — illustration, design, folk art, whatever fits.</p>
-          <div class="actions">
-            <a class="btn" href="#work">See my work</a>
-            <a class="btn outline" href="#contact">Get in touch</a>
-          </div>
-        </div>
-        <!-- ART: main hero illustration (e.g. the night picture / balloon) -->
-        <div class="art-slot">Hero art goes here</div>
+    <!-- Hero: two art slots. Left = placeholder, right = night picture. -->
+    <section class="hero">
+      <!-- ART 1: replace with <img src="images/hero-1.png" alt=""> inside the .ph -->
+      <div class="ph"></div>
+      <!-- ART 2: swap the <svg> for <img src="images/night.png" alt="..."> -->
+      <div class="hero-art">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Hot air balloon at night">
+            <rect width="300" height="400" fill="#1f1b16"/>
+            <g fill="#f5ebd7"><path d="M60 90l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/><path d="M230 60l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M215 140l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><circle cx="50" cy="60" r="3"/><circle cx="250" cy="200" r="2.5"/><circle cx="70" cy="200" r="2"/></g>
+            <ellipse cx="150" cy="190" rx="62" ry="75" fill="#f5ebd7"/>
+            <g fill="#1f1b16"><rect x="118" y="120" width="10" height="140"/><rect x="142" y="115" width="10" height="150"/><rect x="166" y="120" width="10" height="140"/></g>
+            <rect x="92" y="200" width="116" height="18" fill="#b5302a"/>
+            <rect x="136" y="290" width="28" height="22" fill="#f5ebd7"/>
+            <rect x="0" y="372" width="300" height="28" fill="#f5ebd7"/>
+          </svg>
       </div>
     </section>
 
-    <div class="band"></div>
-
-    <!-- Work -->
-    <section class="section" id="work">
-      <div class="container">
-        <h2>Work</h2>
-        <p class="dim">A few recent pieces.</p>
-        <div class="grid">
-          <!-- Copy/paste a .card to add more projects -->
-          <article class="card">
-            <div class="art-slot">Art 1</div>
-            <h3>Project title</h3>
-            <p class="caption">Short caption · year · medium</p>
-          </article>
-          <article class="card">
-            <div class="art-slot">Art 2</div>
-            <h3>Project title</h3>
-            <p class="caption">Short caption · year · medium</p>
-          </article>
-          <article class="card">
-            <div class="art-slot">Art 3</div>
-            <h3>Project title</h3>
-            <p class="caption">Short caption · year · medium</p>
-          </article>
-        </div>
+    <section class="selected" id="projects">
+      <h2>Selected Projects</h2>
+      <div class="project-grid">
+        <!-- Each tile links to a project page. Add more by copying an <a>. -->
+        <a href="project-sauce-demo.html"><div class="ph"></div><span>QA Case Study: SauceDemo</span></a>
+        <a href="project-permit-tracker.html"><div class="ph"></div><span>East Texas Permit Tracker</span></a>
+        <a href="project-this-website.html" class="wide"><div class="ph"></div><span>How I Built this Website</span></a>
       </div>
     </section>
 
-    <div class="band"></div>
-
-    <!-- About -->
-    <section class="section about" id="about">
-      <div class="container">
-        <div class="headshot">
-          <!-- Replace with: <img src="images/headshot.jpg" alt="Drew"> -->
-        </div>
-        <div>
-          <h2>About</h2>
-          <p>Write a few sentences about yourself, your process, and what inspires you.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="band"></div>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-card">
-          <h2>Let's work together</h2>
-          <p>Have a project in mind? Send me a note.</p>
-          <a class="email" href="mailto:you@example.com">you@example.com</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    © 2026 Drew. All rights reserved.
-  </footer>
-
-  <script src="script.js"></script>
+    <footer class="footer-band">
+      <!-- ART: footer image -->
+      <div class="ph"></div>
+      <a href="about.html">information</a>
+    </footer>
+  </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
