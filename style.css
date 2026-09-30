@@ -163,9 +163,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 1.5rem;
-  padding: 2rem 3rem 3rem 2rem;
+  align-content: center;   /* centers the section in the screen after the slide-down */
+  min-height: min(100vh, 640px);
+  padding: 2rem 3rem 2rem 2rem;
 }
-.selected h2 { font-size: 2.6rem; }
+.selected h2 { font-size: 2.6rem; margin: 0; }
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -173,8 +175,8 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 }
 .project-grid a { display: block; text-decoration: none; }
 .project-grid .wide { grid-column: 1 / -1; }
-.project-grid .ph { aspect-ratio: 4 / 3; }
-.project-grid .wide .ph { aspect-ratio: 16 / 7; }
+.project-grid .ph { aspect-ratio: 16 / 10; }
+.project-grid .wide .ph { aspect-ratio: 16 / 5; }
 .project-grid span { display: block; font-size: .85rem; margin-top: .35rem; }
 
 /* ---------- Project pages ---------- */
