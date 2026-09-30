@@ -31,10 +31,15 @@
 
     <div class="stitch-top"></div>
 
-    <!-- Hero: two art slots. Left = placeholder, right = night picture. -->
+    <!-- Hero: envelope (left) and night picture (right), same size. -->
     <section class="hero">
-      <!-- ART 1: click this box to lift the balloon. Replace later with your animation/art. -->
-      <button class="ph hero-toggle" id="lift-toggle" type="button" aria-pressed="false" aria-controls="night" aria-label="Lift the hot air balloon"></button>
+      <!-- ART 1: envelope animation. Click it to play, then the balloon lifts. Swap the video in images/ to change it. -->
+      <button class="hero-env" id="lift-toggle" type="button" aria-pressed="false" aria-controls="night" aria-label="Open the envelope">
+        <video id="envelope" muted playsinline preload="auto" poster="images/envelope-poster.jpg">
+          <source src="images/envelope.mp4" type="video/mp4">
+          <source src="images/envelope.webm" type="video/webm">
+        </video>
+      </button>
       <!-- ART 2: night picture = background (night-bg.jpg) + balloon layer (balloon-lift.png) + air lines -->
       <div class="hero-art" id="night">
         <img class="night-bg" src="images/night-bg.jpg" alt="">
