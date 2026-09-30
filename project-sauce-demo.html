@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Case Study: SauceDemo — Drew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <!-- Sidebar (same on every page) -->
+  <aside class="sidebar">
+    <a class="wordmark" href="index.html">Drew</a>
+    <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
+    <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
+    <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
+    <svg class="tulip" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 4 C30 12 40 10 44 6 C46 22 40 34 28 36 L28 50 L20 50 L20 36 C8 34 2 22 4 6 C8 10 18 12 24 4 Z"/></svg>
+  </aside>
+
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <main class="content case">
+      <div class="case-top">
+        <div>
+          <h1>QA Case Study:<br>SauceDemo</h1>
+          <p>Context: SauceDemo is a demo e-commerce site from Sauce Labs, made for people to practice software testing. It works like a small online store: you log in, browse products, sort them, add items to a cart, and go through checkout. It also includes several built-in test accounts that behave differently. One is locked out, one has visual glitches, and one runs slowly. That makes it a realistic place to practice finding and documenting problems.</p>
+          <p>Problem: In any online store, the path from browsing to buying has to work every time. A broken button, a wrong price, or a cart that loses items costs the business sales and makes customers lose trust. Quality assurance (QA) testing exists to catch those problems before real users do. Your goal was to test the site the way a QA tester would, find where it breaks, and write it up clearly enough that a developer could fix it.</p>
+        </div>
+        <!-- ART: tall side image -->
+        <div class="ph"></div>
+      </div>
+      <!-- ART: replace the grey box with an <img> -->
+      <div class="figure "><div class="ph r-wide"></div></div>
+
+      <p>Process: You can explain each stage of how testing works:</p>
+      <ul>
+        <li>Planning: Decide what to test and why. The most important user paths, like login and checkout, usually come first.</li>
+        <li>Writing test cases: For each one, list the steps, the expected result, and the actual result. For example: "Add an item to the cart, open the cart, and the item should appear with the correct price."</li>
+        <li>Types of testing: Name the ones you used. Functional testing checks that features do what they should. UI testing checks layout and visuals. Negative testing tries things users shouldn't do, like logging in with a wrong password or checking out with empty fields. Cross-user testing compares how the different test accounts behave.</li>
+        <li>Logging bugs: Explain what makes a good bug report: a clear title, steps to reproduce, expected vs. actual behavior, a severity level (how badly it affects users), and a screenshot.</li>
+        <li>Tools: Mention whatever you used to organize your tests, such as a spreadsheet, Jira, or AI tools for drafting cases or checking coverage.</li>
+      </ul>
+      <!-- ART: replace the grey box with an <img> -->
+      <div class="figure "><div class="ph r-wide"></div></div>
+
+      <p>Solution: Summarize what you found, with numbers if you have them (how many test cases you wrote and how many bugs you found). Highlight your most interesting bug and explain why it mattered for users. End with what you learned about testing and what you would test next, such as mobile screen sizes or accessibility.</p>
+      <!-- ART: replace the grey box with an <img> -->
+      <div class="figure narrow"><div class="ph r-wide"></div></div>
+
+    </main>
+    <footer class="footer-band slim"></footer>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

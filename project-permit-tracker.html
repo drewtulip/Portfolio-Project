@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>East Texas Permit Tracker — Drew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <!-- Sidebar (same on every page) -->
+  <aside class="sidebar">
+    <a class="wordmark" href="index.html">Drew</a>
+    <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
+    <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
+    <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
+    <svg class="tulip" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 4 C30 12 40 10 44 6 C46 22 40 34 28 36 L28 50 L20 50 L20 36 C8 34 2 22 4 6 C8 10 18 12 24 4 Z"/></svg>
+  </aside>
+
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <main class="content case">
+      <div class="case-top">
+        <div>
+          <h1>East Texas Permit<br>Tracker</h1>
+          <p>Context: This was a team project for the Hibbs Institute for Business &amp; Economic Research at UT Tyler. The Institute studies the regional economy, and building permits are a useful signal of growth. When permits go up, it usually means new homes, businesses, and investment are coming into an area.</p>
+          <p>Problem: Permit data often arrives messy. The same city or county name gets typed over and over, there are inconsistent spellings, and everything sits in one large table. That leads to duplicate data, mistakes when records are updated, and difficulty answering questions like how activity changed over time or which areas are growing fastest. The Institute needed a structured way to store and analyze this information.</p>
+        </div>
+        <!-- ART: tall side image -->
+        <div class="ph"></div>
+      </div>
+      <div class="figure"><div class="ph r-card" style="aspect-ratio:16/9"></div></div>
+
+      <p>Process: You can walk visitors through how a database gets designed:</p>
+      <ul>
+        <li>Requirements: Figure out what questions the database needs to answer and what information matters, such as permit type, date, location, value, and property type.</li>
+        <li>Identifying entities: Break the data into separate things (like permits, counties, cities, and property types) and define how they relate to each other.</li>
+        <li>ER diagram: Map those relationships visually before building anything.</li>
+        <li>Normalization to 3NF: In plain terms, normalization means storing each fact in only one place. You can explain the three levels simply. First normal form means every field holds a single value. Second normal form means every piece of data depends on the whole record it belongs to. Third normal form means data doesn't depend on other non-key data (for example, a county's name is stored in the county table, not repeated on every permit).</li>
+        <li>Building and testing: Create the tables, load sample data, and write queries to confirm the design answers the questions it was meant to.</li>
+        <li>Teamwork: Describe your specific role and how your team divided the work.</li>
+      </ul>
+      <!-- ART: replace the grey box with an <img> -->
+      <div class="figure narrow"><div class="ph r-wide"></div></div>
+
+      <p>Solution: A clean relational database that removes duplicate data, keeps records consistent, and makes it easy to analyze permit activity across East Texas. Give one or two example questions it can answer, such as which county issued the most residential permits in a year. Close with what you learned about database design or working with real-world data.</p>
+
+    </main>
+    <footer class="footer-band slim"></footer>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -3,119 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drew's Portfolio</title>
+  <title>Drew — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="edges.css">
 </head>
 <body>
+<div class="page">
+  <!-- Sidebar (same on every page) -->
+  <aside class="sidebar">
+    <a class="wordmark" href="index.html">Drew</a>
+    <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
+    <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
+    <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
+    <svg class="tulip" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 4 C30 12 40 10 44 6 C46 22 40 34 28 36 L28 50 L20 50 L20 36 C8 34 2 22 4 6 C8 10 18 12 24 4 Z"/></svg>
+  </aside>
 
-  <!-- Navigation Bar -->
-  <header class="site-header">
-    <a class="mark" href="#top" aria-label="Home">
-    </a>
-    <nav class="site-nav">
-      <ul class="site-nav-list">
-        <li class="site-nav-item"><a href="#about" class="site-nav-link">About</a></li>
-        <li class="site-nav-item"><a href="#projects" class="site-nav-link">Projects</a></li>
-        <li class="site-nav-item"><a href="#leadership" class="site-nav-link">Leadership</a></li>
-        <li class="site-nav-item"><a href="#skills" class="site-nav-link">Skills</a></li>
-      </ul>
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="about.html">About</a>
     </nav>
-  </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
+    <div class="stitch-top"></div>
 
-    <section class="intro-banner">
-      <h1>Welcome to My Portfolio</h1>
-    </section>
-
-    <section class="about" id="about">
-      <div id="garden" aria-hidden="true"></div>
-      <div class="flex-container">
-        <img class="about-photo" src="images/images.PNG" alt="Photo of Drew">
-        <div class="text-container">
-          <h2>About Me</h2>
-          <p>Hello! My name is Drew, Im based in Tyler, Texas and will be a recent graduate of the University of Texas at Tyler with a degree in Information Technology
-            and as well as a minor in Graphic Design and Business Administration in Spring 2027. My interest with Technology and creativity has led me to pursue a career in the field of Information Technology.         </p>
-        </div>
+    <!-- Hero: two art slots. Left = placeholder, right = night picture. -->
+    <section class="hero">
+      <!-- ART 1: replace with <img src="images/hero-1.png" alt=""> inside the .ph -->
+      <div class="ph"></div>
+      <!-- ART 2: swap the <svg> for <img src="images/night.png" alt="..."> -->
+      <div class="hero-art">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Hot air balloon at night">
+            <rect width="300" height="400" fill="#1f1b16"/>
+            <g fill="#f5ebd7"><path d="M60 90l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/><path d="M230 60l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M215 140l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><circle cx="50" cy="60" r="3"/><circle cx="250" cy="200" r="2.5"/><circle cx="70" cy="200" r="2"/></g>
+            <ellipse cx="150" cy="190" rx="62" ry="75" fill="#f5ebd7"/>
+            <g fill="#1f1b16"><rect x="118" y="120" width="10" height="140"/><rect x="142" y="115" width="10" height="150"/><rect x="166" y="120" width="10" height="140"/></g>
+            <rect x="92" y="200" width="116" height="18" fill="#b5302a"/>
+            <rect x="136" y="290" width="28" height="22" fill="#f5ebd7"/>
+            <rect x="0" y="372" width="300" height="28" fill="#f5ebd7"/>
+          </svg>
       </div>
     </section>
 
-    <section class="projects" id="projects">
-      <h2>Projects</h2>
+    <section class="selected" id="projects">
+      <h2>Selected Projects</h2>
       <div class="project-grid">
-
-        <a class="project-card" href="projects/qa-case-study.html">
-          <span class="project-tag">Manual Testing</span>
-          <h3>QA Pass on a Live E-Commerce Demo</h3>
-          <p>Wrote a test plan, ran structured test cases across four account types, and logged bugs found on a public retail site.</p>
-          <span class="project-meta">SauceDemo · Excel · Word</span>
-        </a>
-
-        <a class="project-card" href="projects/permit-tracker.html">
-          <span class="project-tag">Database Design</span>
-          <h3>East Texas Permit Tracker</h3>
-          <p>Built a normalized (3NF) relational database tracking building permit activity across East Texas for the Hibbs Institute.</p>
-          <span class="project-meta">SQL · Database Design</span>
-        </a>
-
-        <a class="project-card" href="folk-art-sunbird.html">
-          <span class="project-tag">Illustration · Animation</span>
-          <h3>Folk Art Sunbird</h3>
-          <p>A hand-drawn folk art sunbird brought to life in SVG — rays rotate and wings flap on a gentle loop.</p>
-          <span class="project-meta">Illustrator · SVG · CSS</span>
-        </a>
-
-      </div>
-    </section>
-    <section class="leadership" id="leadership">
-      <h2>Leadership</h2>
-      <div class="leadership-grid">
-
-        <div class="leadership-card">
-          <span class="leadership-org">Zeta Tau Alpha</span>
-          <h3>Director of Sisterhood · VP of Learning &amp; Development</h3>
-          <p>Active member since September 2024, leading sisterhood programming and member development initiatives, including Big Sister mentorship programming.</p>
-          <span class="leadership-dates">Sep 2024 – Present</span>
-        </div>
-
-        <div class="leadership-card">
-          <span class="leadership-org">National Panhellenic Conference</span>
-          <h3>VP of Member Education</h3>
-          <p>Oversaw member education programming across the Panhellenic community.</p>
-          <span class="leadership-dates">Dec 2024 – Dec 2025</span>
-        </div>
-
-        <div class="leadership-card">
-          <span class="leadership-org">OUTreach</span>
-          <h3>Founder &amp; Vice President</h3>
-          <p>Founded and helped lead an LGBTQ student organization from the ground up.</p>
-          <span class="leadership-dates">Jan 2026 – Aug 2026</span>
-        </div>
-
-        <div class="leadership-card">
-          <span class="leadership-org">Campus Political Organization</span>
-          <h3>PR Coordinator</h3>
-          <p>Manages public relations and communications for the organization.</p>
-          <span class="leadership-dates">Aug 2026 – Present</span>
-        </div>
-
+        <!-- Each tile links to a project page. Add more by copying an <a>. -->
+        <a href="project-sauce-demo.html"><div class="ph"></div><span>QA Case Study: SauceDemo</span></a>
+        <a href="project-permit-tracker.html"><div class="ph"></div><span>East Texas Permit Tracker</span></a>
+        <a href="project-this-website.html" class="wide"><div class="ph"></div><span>How I Built this Website</span></a>
       </div>
     </section>
 
-    <section class="skills" id="skills">
-      <h2>Skills</h2>
-      <p>Skills list goes here.</p>
-    </section>
-
-  </main>
-
+    <footer class="footer-band">
+      <!-- ART: footer image -->
+      <div class="ph"></div>
+      <a href="about.html">information</a>
+    </footer>
+  </div>
+</div>
+<script src="script.js"></script>
 </body>
-
-   <div class="edge edge-left" aria-hidden="true"></div>
-   <div class="edge edge-right" aria-hidden="true"></div>
-
 </html>
