@@ -51,21 +51,19 @@ if (toggle && video && night) {
   });
 }
 
-// ---------- Live time + weather in the sidebar ----------
-// Change these to show a different place. Weather comes from Open-Meteo (free, no key).
-const PLACE = { name: "Tyler, TX", lat: 32.3513, lon: -95.3011, tz: "America/Chicago" };
+// ---------- Live time + weather in the sidebar (the visitor's own) ----------
+// Time uses the visitor's device clock. Weather uses their approximate location,
+// looked up from their IP address (no permission pop-up), then Open-Meteo (free, no key).
+// If the lookup fails it falls back to FALLBACK below.
+const FALLBACK = { name: "Tyler, TX", lat: 32.3513, lon: -95.3011 };
 
 const timeEl = document.querySelector("[data-time]");
 const weatherEl = document.querySelector("[data-weather]");
 const placeEl = document.querySelector("[data-place]");
 
-if (placeEl) placeEl.textContent = PLACE.name;
-
 function tickClock() {
   if (!timeEl) return;
-  timeEl.textContent = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric", minute: "2-digit", timeZone: PLACE.tz,
-  });
+  timeEl.textContent = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 }
 
 const WEATHER_TEXT = {
@@ -81,12 +79,23 @@ const WEATHER_TEXT = {
   95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
 };
 
-async function loadWeather() {
+async function findVisitor() {
+  try {
+    const res = await fetch("https://ipwho.is/?fields=success,city,region_code,latitude,longitude");
+    const d = await res.json();
+    if (!d.success) throw new Error("lookup failed");
+    const name = [d.city, d.region_code].filter(Boolean).join(", ");
+    return { name, lat: d.latitude, lon: d.longitude };
+  } catch {
+    return FALLBACK;
+  }
+}
+
+async function loadWeather(place) {
   if (!weatherEl) return;
   const url = "https://api.open-meteo.com/v1/forecast" +
-    `?latitude=${PLACE.lat}&longitude=${PLACE.lon}` +
-    "&current=temperature_2m,weather_code&temperature_unit=fahrenheit" +
-    `&timezone=${encodeURIComponent(PLACE.tz)}`;
+    `?latitude=${place.lat}&longitude=${place.lon}` +
+    "&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=auto";
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(res.status);
@@ -98,7 +107,13 @@ async function loadWeather() {
   }
 }
 
-tickClock();
-setInterval(tickClock, 1000);
-loadWeather();
-setInterval(loadWeather, 10 * 60 * 1000);
+async function startLocal() {
+  tickClock();
+  setInterval(tickClock, 1000);
+  const place = await findVisitor();
+  if (placeEl) placeEl.textContent = place.name;
+  loadWeather(place);
+  setInterval(() => loadWeather(place), 10 * 60 * 1000);
+}
+
+startLocal();
