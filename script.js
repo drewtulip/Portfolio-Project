@@ -55,7 +55,7 @@ if (toggle && video && night) {
 // Time uses the visitor's device clock. Weather uses their approximate location,
 // looked up from their IP address (no permission pop-up), then Open-Meteo (free, no key).
 // If the lookup fails it falls back to FALLBACK below.
-const FALLBACK = { name: "Tyler, TX", lat: 32.3513, lon: -95.3011 };
+const FALLBACK = { name: "Dallas, TX", lat: 32.7767, lon: -96.7970 };
 
 const timeEl = document.querySelector("[data-time]");
 const weatherEl = document.querySelector("[data-weather]");
