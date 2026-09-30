@@ -233,7 +233,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   width: 100%;
 }
 .footer-band .ph { width: min(330px, 70%); aspect-ratio: 2 / 1; margin: 0 auto; }
-.footer-band a { display: block; text-align: right; font-family: system-ui, sans-serif; font-size: .8rem; margin-top: 3rem; text-decoration: none; }
+.footer-band .social { display: flex; justify-content: flex-end; gap: 1.25rem; margin-top: 3rem; }
+.footer-band .social a { display: block; width: 26px; height: 26px; color: var(--ink); transition: color .2s ease, transform .2s ease; }
+.footer-band .social a:hover, .footer-band .social a:focus-visible { color: var(--turkey); transform: translateY(-2px); }
+.footer-band .social svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+.footer-band .social svg[fill="none"] { fill: none; }
 .footer-band.slim { padding: 0; height: 2.2rem; }
 
 /* ---------- Mobile ---------- */
@@ -251,8 +255,35 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   .case-top .ph { aspect-ratio: 16 / 5; order: -1; }
 }
 
-/* ---------- Cursor: little red tulip, black over clickable things ---------- */
-html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cg fill=%22%23c4271f%22 stroke=%22%23f5ebd7%22 stroke-width=%222%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22%3E%3Cpath d=%22M16 3C18 7 22 6 25 4C26 12 23 18 17 19L17 28L15 28L15 19C9 18 6 12 7 4C10 6 14 7 16 3Z%22/%3E%3Cpath d=%22M15 28C10 27 8 23 7 20C11 21 14 24 15 28Z%22/%3E%3Cpath d=%22M17 28C22 27 24 23 25 20C21 21 18 24 17 28Z%22/%3E%3C/g%3E%3C/svg%3E") 16 4, auto; }
+/* ---------- Cursor: simple red arrow, black over clickable things ---------- */
+html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cpath d=%22M4 3L4 20L9 15.5L12.5 23L15.5 21.6L12 14.3L19 14.3Z%22 fill=%22%23c4271f%22 stroke=%22%23f5ebd7%22 stroke-width=%221.6%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") 4 3, auto; }
 a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cg fill=%22%231f1b16%22 stroke=%22%23f5ebd7%22 stroke-width=%222%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22%3E%3Cpath d=%22M16 3C18 7 22 6 25 4C26 12 23 18 17 19L17 28L15 28L15 19C9 18 6 12 7 4C10 6 14 7 16 3Z%22/%3E%3Cpath d=%22M15 28C10 27 8 23 7 20C11 21 14 24 15 28Z%22/%3E%3Cpath d=%22M17 28C22 27 24 23 25 20C21 21 18 24 17 28Z%22/%3E%3C/g%3E%3C/svg%3E") 16 4, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cpath d=%22M4 3L4 20L9 15.5L12.5 23L15.5 21.6L12 14.3L19 14.3Z%22 fill=%22%231f1b16%22 stroke=%22%23f5ebd7%22 stroke-width=%221.6%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") 4 3, pointer;
 }
+
+/* ---------- "Click to open" hint on the envelope ---------- */
+.hero-env { position: relative; }
+.env-hint {
+  position: absolute;
+  left: 0; right: 0; bottom: 18%;
+  text-align: center;
+  font-family: "Amatic SC", "Caveat", cursive;   /* hand-lettered, folk-poster feel */
+  font-weight: 700;
+  font-size: 2.1rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  pointer-events: none;
+  animation: hint-pulse 2.4s ease-in-out infinite;
+  transition: opacity .3s ease;
+}
+.hero-env.played .env-hint { opacity: 0; animation: none; }
+@keyframes hint-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .env-hint { animation: none; } }
+
+/* ---------- Live time + weather (sidebar) ---------- */
+.local { margin: 1.25rem 0 0; font-size: .85rem; line-height: 1.4; }
+.local span { display: block; }
+.local-place { color: var(--pink); }
+.local-time { font-weight: 600; font-size: 1.05rem; }
+.local-weather { color: var(--pink); }
