@@ -199,15 +199,15 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
   width: 100%;
-  /* wide, filling most (not all) of the page; shrinks on short screens so everything still fits */
-  max-width: min(90%, max(520px, calc((100vh - 250px) / .555)));
+  /* never wider than 680px, and shrinks on short screens so everything fits without scrolling */
+  max-width: min(680px, max(480px, calc((100vh - 280px) / .645)));
   margin-inline: auto;
 }
 .project-grid a { display: block; text-decoration: none; }
 .project-grid .wide { grid-column: 1 / -1; }
-.project-grid .ph { aspect-ratio: 16 / 10; }
+.project-grid .ph { aspect-ratio: 3 / 2; }
 .ph video { display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-grid .wide .ph { aspect-ratio: 4 / 1; }
+.project-grid .wide .ph { aspect-ratio: 16 / 5; }
 .project-grid span { display: block; font-size: .85rem; margin-top: .35rem; }
 
 /* ---------- Project pages ---------- */
