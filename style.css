@@ -202,7 +202,22 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .project-grid .ph { aspect-ratio: 4 / 3; }
 .ph video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .project-grid .wide .ph { aspect-ratio: 16 / 7; }
-.project-grid span { display: block; font-size: .85rem; margin-top: .35rem; }
+.project-grid span { display: block; }
+.project-grid .tile-title {
+  margin-top: .6rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--cream);
+}
+.project-grid .tile-sub {
+  margin-top: .15rem;
+  font-family: var(--font-ui);
+  font-size: .9rem;
+  line-height: 1.4;
+  color: var(--pink);
+}
 
 /* ---------- Project pages ---------- */
 .case-top {
