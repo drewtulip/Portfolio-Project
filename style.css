@@ -357,3 +357,9 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .project-grid a:hover .tile-info,
 .project-grid a:focus-visible .tile-info { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tile-info { transition: none; } }
+
+/* ---------- Top panels: rounder corners, zoomed in closer on the art ---------- */
+.hero-env, .hero-art { border-radius: 32px; }
+/* one shared zoom so the envelope and balloon panels match; raise 1.22 to zoom in more */
+.hero-art .zoom { position: absolute; inset: 0; transform: scale(1.22); transform-origin: 50% 90%; }
+.hero-env video { transform: scale(1.22); transform-origin: 50% 90%; }
