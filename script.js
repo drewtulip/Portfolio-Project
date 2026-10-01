@@ -61,3 +61,8 @@ function tickClock() {
 
 tickClock();
 setInterval(tickClock, 1000);
+
+// Looping videos (like the bird tile) stay still for visitors who prefer reduced motion.
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll("video.loop-video").forEach((v) => { v.removeAttribute("autoplay"); v.pause(); });
+}

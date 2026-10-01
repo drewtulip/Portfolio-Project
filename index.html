@@ -6,7 +6,7 @@
   <title>Drew — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Work+Sans:wght@400;600&family=Cormorant+Garamond:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -61,7 +61,16 @@
       <h2>Selected Projects</h2>
       <div class="project-grid">
         <!-- Each tile links to a project page. Add more by copying an <a>. -->
-        <a href="project-sauce-demo.html"><div class="ph"></div><span>QA Case Study: SauceDemo</span></a>
+        <a href="project-sauce-demo.html">
+          <!-- ART: looping bird animation. Swap images/bird-loop.mp4 / .webm to change it. -->
+          <div class="ph">
+            <video class="loop-video" autoplay muted loop playsinline preload="auto" poster="images/bird-poster.jpg">
+              <source src="images/bird-loop.mp4" type="video/mp4">
+              <source src="images/bird-loop.webm" type="video/webm">
+            </video>
+          </div>
+          <span>QA Case Study: SauceDemo</span>
+        </a>
         <a href="project-permit-tracker.html"><div class="ph"></div><span>East Texas Permit Tracker</span></a>
         <a href="project-this-website.html" class="wide"><div class="ph"></div><span>How I Built this Website</span></a>
       </div>
