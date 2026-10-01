@@ -187,17 +187,20 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .selected {
   scroll-margin-top: 3.5rem;   /* leave room for the sticky nav */
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 1.5rem;
-  align-content: center;   /* centers the section in the screen after the slide-down */
-  min-height: min(100vh, 640px);
-  padding: 2rem 3rem 2rem 2rem;
+  grid-template-columns: 1fr;
+  align-content: center;       /* centers the section in the screen after the slide-down */
+  gap: 1.25rem;
+  min-height: min(100vh, 700px);
+  padding: 2rem 3rem 2.5rem 2rem;
 }
-.selected h2 { font-size: 2.6rem; margin: 0; }
+.selected h2 { font-size: 2.6rem; margin: 0; text-align: left; }   /* top left */
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
+  width: 100%;
+  max-width: 680px;       /* narrower, so the tiles sit toward the middle */
+  margin-inline: auto;
 }
 .project-grid a { display: block; text-decoration: none; }
 .project-grid .wide { grid-column: 1 / -1; }
@@ -293,3 +296,33 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .ph, .hero-env, .hero-art, .headshot, .footer-band .ph { border-radius: var(--round); }
 .hero-env, .hero-art, .ph { overflow: hidden; }
 .project-grid .ph, .case .ph { border-radius: var(--round); }
+
+/* ---------- Footer farm scene: barn on the right, duck hops on a loop ---------- */
+.footer-band { position: relative; }
+.farm {
+  position: absolute;
+  right: 6%;
+  top: 46%;
+  transform: translateY(-50%);
+  width: min(280px, 26vw);
+  aspect-ratio: 650 / 476;
+}
+.farm img { position: absolute; display: block; }
+.farm-scene { inset: 0; width: 100%; height: 100%; }
+.farm-duck {
+  left: 3.077%; top: 76.471%; width: 12.154%; height: 19.328%;   /* where the duck sits in the scene */
+  transform-origin: 50% 100%;
+  animation: duck-hop 2.6s ease-in-out infinite;
+}
+/* two small hops, then a rest */
+@keyframes duck-hop {
+  0%, 50%, 100% { transform: translateY(0); }
+  10% { transform: translateY(-38%); }
+  20% { transform: translateY(0); }
+  30% { transform: translateY(-26%); }
+  40% { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .farm-duck { animation: none; } }
+@media (max-width: 820px) {
+  .farm { position: static; transform: none; width: min(280px, 70%); margin: 1.5rem auto 0; }
+}
