@@ -16,6 +16,7 @@
 
   --ph: #d9d9d9;     /* placeholder grey (from your Figma) */
   --sidebar: 230px;
+  --round: 18px;     /* corner rounding for all images */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "EB Garamond", Georgia, serif;
   --font-ui: "Work Sans", system-ui, sans-serif; /* easy-to-read sans for the sidebar */
@@ -158,18 +159,19 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 }
 .hero-art.lifted .balloon { transform: translateY(-22%); }
 
+/* simple wind: a few short straight lines floating up */
 .air-line {
-  position: absolute; width: 2.4%; height: 10%;
-  fill: none; stroke: var(--cream); stroke-width: 3; stroke-linecap: round;
-  vector-effect: non-scaling-stroke; overflow: visible;
+  position: absolute;
+  width: 3px; height: 9%;
+  border-radius: 3px;
+  background: var(--cream);
   opacity: 0;
 }
-.air-line path { vector-effect: non-scaling-stroke; }
 .hero-art.lifted .air-line { animation: air-rise 4.5s ease-out infinite; }
 @keyframes air-rise {
-  0%   { opacity: 0;  transform: translateY(35%); }
-  25%  { opacity: 1; }
-  100% { opacity: 0;  transform: translateY(-300%); }
+  0%   { opacity: 0;  transform: translateY(40%); }
+  30%  { opacity: .9; }
+  100% { opacity: 0;  transform: translateY(-260%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-art .balloon { transition: none; }
@@ -274,14 +276,19 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
   text-transform: uppercase;
   color: var(--ink);
   pointer-events: none;
-  animation: hint-pulse 2.4s ease-in-out infinite;
+  animation: hint-bounce 1.2s ease-in-out infinite;
   transition: opacity .3s ease;
 }
 .hero-env.played .env-hint { opacity: 0; animation: none; }
-@keyframes hint-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes hint-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @media (prefers-reduced-motion: reduce) { .env-hint { animation: none; } }
 
 /* ---------- Live time (sidebar) ---------- */
 .local { margin: 1.25rem 0 0; font-size: .85rem; line-height: 1.4; }
 .local span { display: block; }
 .local-time { font-weight: 600; font-size: 1.05rem; }
+
+/* ---------- Rounded corners on all images ---------- */
+.ph, .hero-env, .hero-art, .headshot, .footer-band .ph { border-radius: var(--round); }
+.hero-env, .hero-art, .ph { overflow: hidden; }
+.project-grid .ph, .case .ph { border-radius: var(--round); }
