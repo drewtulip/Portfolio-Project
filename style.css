@@ -187,27 +187,21 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .selected {
   scroll-margin-top: 3.5rem;   /* leave room for the sticky nav */
   display: grid;
-  grid-template-columns: 1fr;
-  align-content: center;       /* centers the section in the screen after the slide-down */
-  gap: 1.25rem;
-  min-height: min(100vh, 700px);
-  padding: 2rem 3rem 2.5rem 2rem;
+  grid-template-columns: 200px 1fr;   /* heading on the left, tiles on the right */
+  gap: 1.5rem;
+  padding: 2rem 3rem 3rem 2rem;
 }
-.selected h2 { font-size: 2.6rem; margin: 0; text-align: left; }   /* top left */
+.selected h2 { font-size: 2.6rem; margin: 0; }
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
-  width: 100%;
-  /* never wider than 680px, and shrinks on short screens so everything fits without scrolling */
-  max-width: min(680px, max(480px, calc((100vh - 280px) / .645)));
-  margin-inline: auto;
 }
 .project-grid a { display: block; text-decoration: none; }
 .project-grid .wide { grid-column: 1 / -1; }
-.project-grid .ph { aspect-ratio: 3 / 2; }
+.project-grid .ph { aspect-ratio: 4 / 3; }
 .ph video { display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-grid .wide .ph { aspect-ratio: 16 / 5; }
+.project-grid .wide .ph { aspect-ratio: 16 / 7; }
 .project-grid span { display: block; font-size: .85rem; margin-top: .35rem; }
 
 /* ---------- Project pages ---------- */
