@@ -187,27 +187,21 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .selected {
   scroll-margin-top: 3.5rem;   /* leave room for the sticky nav */
   display: grid;
-  grid-template-columns: 1fr;
-  align-content: center;       /* centers the section in the screen after the slide-down */
-  gap: 1.25rem;
-  min-height: min(100vh, 700px);
-  padding: 2rem 3rem 2.5rem 2rem;
+  grid-template-columns: 200px 1fr;   /* heading on the left, tiles on the right */
+  gap: 1.5rem;
+  padding: 2rem 3rem 3rem 2rem;
 }
-.selected h2 { font-size: 2.6rem; margin: 0; text-align: left; }   /* top left */
+.selected h2 { font-size: 2.6rem; margin: 0; }
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
-  width: 100%;
-  /* never wider than 680px, and shrinks on short screens so everything fits without scrolling */
-  max-width: min(680px, max(480px, calc((100vh - 280px) / .645)));
-  margin-inline: auto;
 }
 .project-grid a { display: block; text-decoration: none; }
 .project-grid .wide { grid-column: 1 / -1; }
-.project-grid .ph { aspect-ratio: 3 / 2; }
+.project-grid .ph { aspect-ratio: 4 / 3; }
 .ph video { display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-grid .wide .ph { aspect-ratio: 16 / 5; }
+.project-grid .wide .ph { aspect-ratio: 16 / 7; }
 .project-grid span { display: block; font-size: .85rem; margin-top: .35rem; }
 
 /* ---------- Project pages ---------- */
@@ -329,21 +323,22 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .tile-info {
   position: absolute; inset: 0;
   margin: 0;
-  padding: 1rem 1.5rem;
-  display: flex; flex-direction: column; justify-content: center; gap: .55rem;
+  padding: 1rem 2rem;
+  display: flex; flex-direction: column; justify-content: center; gap: .6rem;
   background: var(--cream);
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  line-height: 1.25;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  line-height: 1.3;
   opacity: 0;
   pointer-events: none;
   transition: opacity .25s ease;
 }
 .tile-info div { display: flex; gap: .6rem; align-items: baseline; }
-.tile-info dt { font-weight: 500; flex: 0 0 6.2em; }
+.tile-info dt, .tile-info dd { font-weight: 500; font-style: normal; letter-spacing: .01em; }
+.tile-info dt { flex: 0 0 6.4em; }
 .tile-info dt::after { content: ":"; }
-.tile-info dd { margin: 0; font-style: italic; }
+.tile-info dd { margin: 0; }
 .project-grid a:hover .tile-info,
 .project-grid a:focus-visible .tile-info { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tile-info { transition: none; } }
