@@ -199,8 +199,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
   width: 100%;
-  /* as big as possible while the whole section still fits on one screen */
-  max-width: min(100%, max(520px, calc((100vh - 280px) / .645)));
+  max-width: 680px;       /* narrower, so the tiles sit toward the middle */
   margin-inline: auto;
 }
 .project-grid a { display: block; text-decoration: none; }
