@@ -45,11 +45,12 @@
       <a href="about.html">About</a>
     </nav>
 
-    <main class="content case">
+    <main class="content case centered">
       <div class="case-top has-facts">
         <div>
           <h1>East Texas Permit<br>Tracker</h1>
-          <h2 class="sec first">Intro</h2>
+          <p class="eyebrow first">Intro</p>
+      <h2 class="sec-title">A team database project for UT Tyler's Hibbs Institute</h2>
           <p>During my Spring semester this past year, my Database Design class had us working in a team to design a MySQL database. We went with UT Tyler's Hibbs Institute to track building permits across East Texas.</p>
         </div>
         <!-- Project facts (edit these four lines) -->
@@ -61,13 +62,16 @@
         </dl>
       </div>
 
-      <h2 class="sec">Context</h2>
+      <p class="eyebrow">Context</p>
+      <h2 class="sec-title">Who the Hibbs Institute is and why permits matter</h2>
       <p>The Hibbs Institute for Business &amp; Economic Research is part of UT Tyler's Soules College of Business. It studies the East Texas economy and publishes research that local businesses, city leaders and economic development groups use to make decisions. Tracking permits well helps the Institute see where the region is growing, what kind of construction is driving it, and who is doing the building.</p>
 
-      <h2 class="sec">Problem</h2>
+      <p class="eyebrow">Problem</p>
+      <h2 class="sec-title">One messy spreadsheet where the same company was spelled many ways</h2>
       <p>The raw data we received was one big spreadsheet where every row retyped the owner, business, address and contractor. Because of this, the same company could show up under different spellings, and fixing one detail meant hunting down every row it appeared in.</p>
 
-      <h2 class="sec">Process</h2>
+      <p class="eyebrow">Process</p>
+      <h2 class="sec-title">Clean the data, map it in an ER diagram, then normalize it</h2>
       <p>In the beginning of the project, we decided to clean the CSV and then build the seed data from it. The design from there centers on the permit table, and every other table describes something a permit points to. We mapped all of this in an ER diagram before writing any code, then normalized it to Third Normal Form and built rules into the database itself.</p>
       <!-- ART: ER diagram. To use your own picture instead, replace the <svg> with <img src="images/er-diagram.png" alt="ER diagram"> -->
       <figure class="figure er">
@@ -99,7 +103,8 @@
         <figcaption>ER diagram: every table describes something a permit points to.</figcaption>
       </figure>
 
-      <h2 class="sec">Solution</h2>
+      <p class="eyebrow">Solution</p>
+      <h2 class="sec-title">A working MySQL database that answers questions in a single query</h2>
       <p>The result is a working MySQL database. After building it, we loaded real Tyler-area permits from 2024-2025, and the database now answers the Institute's questions with a single query.</p>
 
       <!-- ART: the query and its result. Swap images/permit-query.png to change it. -->
@@ -108,7 +113,8 @@
         <figcaption>One query: which businesses have more than $50,000 in total permit value.</figcaption>
       </figure>
 
-      <h2 class="sec">Reflection</h2>
+      <p class="eyebrow">Reflection</p>
+      <h2 class="sec-title">Decide what belongs in each table before writing any SQL</h2>
       <p>I learned that a lot of the work is deciding what belongs in which table before writing any SQL.</p>
 
       <!-- ART: database result. Swap images/permits-dashboard.jpg to change it. -->
