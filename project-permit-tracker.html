@@ -46,31 +46,76 @@
     </nav>
 
     <main class="content case">
-      <div class="case-top">
+      <div class="case-top has-facts">
         <div>
           <h1>East Texas Permit<br>Tracker</h1>
-          <p>Context: This was a team project for the Hibbs Institute for Business &amp; Economic Research at UT Tyler. The Institute studies the regional economy, and building permits are a useful signal of growth. When permits go up, it usually means new homes, businesses, and investment are coming into an area.</p>
-          <p>Problem: Permit data often arrives messy. The same city or county name gets typed over and over, there are inconsistent spellings, and everything sits in one large table. That leads to duplicate data, mistakes when records are updated, and difficulty answering questions like how activity changed over time or which areas are growing fastest. The Institute needed a structured way to store and analyze this information.</p>
+          <h2 class="sec first">Intro</h2>
+          <p>During my Spring semester this past year, my Database Design class had us working in a team to design a MySQL database. We went with UT Tyler's Hibbs Institute to track building permits across East Texas.</p>
         </div>
-        <!-- ART: tall side image -->
-        <div class="ph"></div>
+        <!-- Project facts (edit these four lines) -->
+        <dl class="facts">
+          <div><dt>Role:</dt><dd>Database Designer</dd></div>
+          <div><dt>Tools:</dt><dd>MySQL, ER diagrams</dd></div>
+          <div><dt>Timeline:</dt><dd>Spring semester</dd></div>
+          <div><dt>Team:</dt><dd>Team project</dd></div>
+        </dl>
       </div>
-      <div class="figure"><div class="ph r-card" style="aspect-ratio:16/9"></div></div>
 
-      <p>Process: You can walk visitors through how a database gets designed:</p>
-      <ul>
-        <li>Requirements: Figure out what questions the database needs to answer and what information matters, such as permit type, date, location, value, and property type.</li>
-        <li>Identifying entities: Break the data into separate things (like permits, counties, cities, and property types) and define how they relate to each other.</li>
-        <li>ER diagram: Map those relationships visually before building anything.</li>
-        <li>Normalization to 3NF: In plain terms, normalization means storing each fact in only one place. You can explain the three levels simply. First normal form means every field holds a single value. Second normal form means every piece of data depends on the whole record it belongs to. Third normal form means data doesn't depend on other non-key data (for example, a county's name is stored in the county table, not repeated on every permit).</li>
-        <li>Building and testing: Create the tables, load sample data, and write queries to confirm the design answers the questions it was meant to.</li>
-        <li>Teamwork: Describe your specific role and how your team divided the work.</li>
-      </ul>
-      <!-- ART: replace the grey box with an <img> -->
-      <div class="figure narrow"><div class="ph r-wide"></div></div>
+      <h2 class="sec">Context</h2>
+      <p>The Hibbs Institute for Business &amp; Economic Research is part of UT Tyler's Soules College of Business. It studies the East Texas economy and publishes research that local businesses, city leaders and economic development groups use to make decisions. Tracking permits well helps the Institute see where the region is growing, what kind of construction is driving it, and who is doing the building.</p>
 
-      <p>Solution: A clean relational database that removes duplicate data, keeps records consistent, and makes it easy to analyze permit activity across East Texas. Give one or two example questions it can answer, such as which county issued the most residential permits in a year. Close with what you learned about database design or working with real-world data.</p>
+      <h2 class="sec">Problem</h2>
+      <p>The raw data we received was one big spreadsheet where every row retyped the owner, business, address and contractor. Because of this, the same company could show up under different spellings, and fixing one detail meant hunting down every row it appeared in.</p>
 
+      <h2 class="sec">Process</h2>
+      <p>In the beginning of the project, we decided to clean the CSV and then build the seed data from it. The design from there centers on the permit table, and every other table describes something a permit points to. We mapped all of this in an ER diagram before writing any code, then normalized it to Third Normal Form and built rules into the database itself.</p>
+      <!-- ART: ER diagram. To use your own picture instead, replace the <svg> with <img src="images/er-diagram.png" alt="ER diagram"> -->
+      <figure class="figure er">
+        <svg viewBox="0 0 1000 590" role="img" aria-label="Entity relationship diagram: Permit connects to Category, Subcategory, Parcel and, through PermitContractor, to Contractor." xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="many" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto-start-reverse"><path d="M2,8 L14,1 M2,8 L14,15 M2,8 L14,8" fill="none" stroke="#2b2622" stroke-width="1.6"/></marker>
+<marker id="one" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto-start-reverse"><path d="M9,1 L9,15 M13,1 L13,15" fill="none" stroke="#2b2622" stroke-width="1.6"/></marker>
+</defs>
+<style>.et{font:600 13px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ea{font:400 12.5px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ek{font:600 11px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.rl{font:italic 12.5px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.ln{fill:none;stroke:#2b2622;stroke-width:1.6}</style>
+<path class="ln" d="M365,110 V210" marker-start="url(#many)" marker-end="url(#one)"/>
+<text x="377" y="165" class="rl">uses</text>
+<path class="ln" d="M175,445 H195 V70 H230" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="182" y="260" class="rl" transform="rotate(-90 182 260)" text-anchor="middle">uses</text>
+<path class="ln" d="M525,235 H625 V70 H720" marker-start="url(#many)" marker-end="url(#one)"/>
+<text x="650" y="135" class="rl">categorizes</text>
+<path class="ln" d="M815,110 V250" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="827" y="190" class="rl">has</text>
+<path class="ln" d="M525,330 H720" marker-start="url(#many)" marker-end="url(#one)"/>
+<text x="590" y="322" class="rl">classifies</text>
+<path class="ln" d="M425,434 V525 H560" marker-start="url(#many)" marker-end="url(#one)"/>
+<text x="440" y="500" class="rl">contains</text>
+<g><rect x="20" y="420" width="155" height="70" rx="6" fill="#e4f5e0" stroke="#5aa650" stroke-width="1.5"/><path d="M20,446 V426 a6,6 0 0 1 6,-6 H169 a6,6 0 0 1 6,6 V446 Z" fill="#b9e5b2" stroke="#5aa650" stroke-width="1.5"/><text x="97.5" y="437.5" text-anchor="middle" class="et">CONTRACTOR</text><text x="30" y="461" class="ea">ContractorID</text><text x="165" y="461" text-anchor="end" class="ek">PK</text><rect x="21" y="468" width="153" height="22" fill="#000" opacity=".05"/><text x="30" y="483" class="ea">ContractorName</text><text x="165" y="483" text-anchor="end" class="ek"></text></g>
+<g><rect x="230" y="40" width="195" height="70" rx="6" fill="#fde8f5" stroke="#d96bb5" stroke-width="1.5"/><path d="M230,66 V46 a6,6 0 0 1 6,-6 H419 a6,6 0 0 1 6,6 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="1.5"/><text x="327.5" y="57.5" text-anchor="middle" class="et">PERMITCONTRACTOR</text><text x="240" y="81" class="ea">PermitID</text><text x="415" y="81" text-anchor="end" class="ek">PK</text><rect x="231" y="88" width="193" height="22" fill="#000" opacity=".05"/><text x="240" y="103" class="ea">ContractorID</text><text x="415" y="103" text-anchor="end" class="ek">PK</text></g>
+<g><rect x="330" y="210" width="195" height="224" rx="6" fill="#fff4d2" stroke="#d9a900" stroke-width="1.5"/><path d="M330,236 V216 a6,6 0 0 1 6,-6 H519 a6,6 0 0 1 6,6 V236 Z" fill="#ffe49a" stroke="#d9a900" stroke-width="1.5"/><text x="427.5" y="227.5" text-anchor="middle" class="et">PERMIT</text><text x="340" y="251" class="ea">PermitID</text><text x="515" y="251" text-anchor="end" class="ek">PK</text><rect x="331" y="258" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="273" class="ea">CategoryID</text><text x="515" y="273" text-anchor="end" class="ek">FK</text><text x="340" y="295" class="ea">SubcategoryID</text><text x="515" y="295" text-anchor="end" class="ek">FK</text><rect x="331" y="302" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="317" class="ea">ParcelID</text><text x="515" y="317" text-anchor="end" class="ek">FK</text><text x="340" y="339" class="ea">PermitNo</text><text x="515" y="339" text-anchor="end" class="ek"></text><rect x="331" y="346" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="361" class="ea">IssueDate</text><text x="515" y="361" text-anchor="end" class="ek"></text><text x="340" y="383" class="ea">ExpirationDate</text><text x="515" y="383" text-anchor="end" class="ek"></text><rect x="331" y="390" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="405" class="ea">JobValue</text><text x="515" y="405" text-anchor="end" class="ek"></text><text x="340" y="427" class="ea">FeesCharged</text><text x="515" y="427" text-anchor="end" class="ek"></text></g>
+<g><rect x="720" y="40" width="190" height="70" rx="6" fill="#fde8f5" stroke="#d96bb5" stroke-width="1.5"/><path d="M720,66 V46 a6,6 0 0 1 6,-6 H904 a6,6 0 0 1 6,6 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="1.5"/><text x="815.0" y="57.5" text-anchor="middle" class="et">CATEGORY</text><text x="730" y="81" class="ea">CategoryID</text><text x="900" y="81" text-anchor="end" class="ek">PK</text><rect x="721" y="88" width="188" height="22" fill="#000" opacity=".05"/><text x="730" y="103" class="ea">CategoryName</text><text x="900" y="103" text-anchor="end" class="ek"></text></g>
+<g><rect x="720" y="250" width="190" height="92" rx="6" fill="#e6f0fc" stroke="#5a95de" stroke-width="1.5"/><path d="M720,276 V256 a6,6 0 0 1 6,-6 H904 a6,6 0 0 1 6,6 V276 Z" fill="#c6dcf8" stroke="#5a95de" stroke-width="1.5"/><text x="815.0" y="267.5" text-anchor="middle" class="et">SUBCATEGORY</text><text x="730" y="291" class="ea">SubcategoryID</text><text x="900" y="291" text-anchor="end" class="ek">PK</text><rect x="721" y="298" width="188" height="22" fill="#000" opacity=".05"/><text x="730" y="313" class="ea">CategoryID</text><text x="900" y="313" text-anchor="end" class="ek">FK</text><text x="730" y="335" class="ea">SubcategoryName</text><text x="900" y="335" text-anchor="end" class="ek"></text></g>
+<g><rect x="560" y="500" width="190" height="48" rx="6" fill="#f3e8fb" stroke="#a06ad0" stroke-width="1.5"/><path d="M560,526 V506 a6,6 0 0 1 6,-6 H744 a6,6 0 0 1 6,6 V526 Z" fill="#e3cdf5" stroke="#a06ad0" stroke-width="1.5"/><text x="655.0" y="517.5" text-anchor="middle" class="et">PARCEL</text><text x="570" y="541" class="ea">ParcelID</text><text x="740" y="541" text-anchor="end" class="ek">PK</text></g>
+</svg>
+        <figcaption>ER diagram: every table describes something a permit points to.</figcaption>
+      </figure>
+
+      <h2 class="sec">Solution</h2>
+      <p>The result is a working MySQL database. After building it, we loaded real Tyler-area permits from 2024-2025, and the database now answers the Institute's questions with a single query.</p>
+
+      <!-- ART: the query and its result. Swap images/permit-query.png to change it. -->
+      <figure class="figure query">
+        <img src="images/permit-query.png" alt="MySQL query joining permits, parcels and businesses to total job value per business, with three businesses returned">
+        <figcaption>One query: which businesses have more than $50,000 in total permit value.</figcaption>
+      </figure>
+
+      <h2 class="sec">Reflection</h2>
+      <p>I learned that a lot of the work is deciding what belongs in which table before writing any SQL.</p>
+
+      <!-- ART: database result. Swap images/permits-dashboard.jpg to change it. -->
+      <figure class="figure result">
+        <img src="images/permits-dashboard.jpg" alt="Permits dashboard showing total permits by type, by month, a map of Texas, and total permits and fees for 2025">
+        <figcaption>The result: permit data from the database, shown as a dashboard.</figcaption>
+      </figure>
     </main>
   </div>
 </div>
