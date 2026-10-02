@@ -1,30 +1,19 @@
-// Click the envelope: it opens, then the hot air balloon lifts, and about a
-// second later the page glides down to Selected Projects. Click again to reset.
-const LIFT_MS = 1400;   // matches the balloon transition in style.css
-const PAUSE_MS = 1000;  // wait after the lift before scrolling
+// Click the envelope: it opens, then the hot air balloon lifts. Click again to reset.
 const LIFT_AT = 1.8;    // seconds into the video when the letter is in place; balloon starts here
 
 const toggle = document.getElementById("lift-toggle");
 const video = document.getElementById("envelope");
 const night = document.getElementById("night");
-const projects = document.getElementById("projects");
-let scrollTimer;
 let playing = false;
 
 function liftBalloon() {
   if (night.classList.contains("lifted")) return;
   night.classList.add("lifted");
   toggle.setAttribute("aria-pressed", "true");
-  if (!projects) return;
-  scrollTimer = setTimeout(() => {
-    const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    projects.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
-  }, LIFT_MS + PAUSE_MS);
 }
 
 function reset() {
   toggle.classList.remove("played");
-  clearTimeout(scrollTimer);
   night.classList.remove("lifted");
   toggle.setAttribute("aria-pressed", "false");
   video.pause();
