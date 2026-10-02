@@ -57,7 +57,7 @@
           <div><dt>Role:</dt><dd>Database Designer</dd></div>
           <div><dt>Tools:</dt><dd>MySQL, ER diagrams</dd></div>
           <div><dt>Timeline:</dt><dd>Spring semester</dd></div>
-          <div><dt>Team:</dt><dd>Team project</dd></div>
+          <div><dt>Team:</dt><dd class="names">Anna Arseienko<br>Alexis McGowan<br>Drew Lamonica<br>Kevin Sheja Jabo</dd></div>
         </dl>
       </div>
 
@@ -71,31 +71,31 @@
       <p>In the beginning of the project, we decided to clean the CSV and then build the seed data from it. The design from there centers on the permit table, and every other table describes something a permit points to. We mapped all of this in an ER diagram before writing any code, then normalized it to Third Normal Form and built rules into the database itself.</p>
       <!-- ART: ER diagram. To use your own picture instead, replace the <svg> with <img src="images/er-diagram.png" alt="ER diagram"> -->
       <figure class="figure er">
-        <svg viewBox="0 0 1000 590" role="img" aria-label="Entity relationship diagram: Permit connects to Category, Subcategory, Parcel and, through PermitContractor, to Contractor." xmlns="http://www.w3.org/2000/svg">
-<defs>
-<marker id="many" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto-start-reverse"><path d="M2,8 L14,1 M2,8 L14,15 M2,8 L14,8" fill="none" stroke="#2b2622" stroke-width="1.6"/></marker>
-<marker id="one" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto-start-reverse"><path d="M9,1 L9,15 M13,1 L13,15" fill="none" stroke="#2b2622" stroke-width="1.6"/></marker>
+        <svg viewBox="0 0 1000 730" role="img" aria-label="Entity relationship diagram: Permit connects to Category, Subcategory, Parcel and, through PermitContractor, to Contractor." xmlns="http://www.w3.org/2000/svg">
+        <defs>
+<marker id="many" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto-start-reverse"><path d="M2,10 L18,1 M2,10 L18,19 M2,10 L18,10" fill="none" stroke="#2b2622" stroke-width="2"/></marker>
+<marker id="one" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto-start-reverse"><path d="M11,1 L11,19 M16,1 L16,19" fill="none" stroke="#2b2622" stroke-width="2"/></marker>
 </defs>
-<style>.et{font:600 13px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ea{font:400 12.5px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ek{font:600 11px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.rl{font:italic 12.5px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.ln{fill:none;stroke:#2b2622;stroke-width:1.6}</style>
-<path class="ln" d="M365,110 V210" marker-start="url(#many)" marker-end="url(#one)"/>
-<text x="377" y="165" class="rl">uses</text>
-<path class="ln" d="M175,445 H195 V70 H230" marker-start="url(#one)" marker-end="url(#many)"/>
-<text x="182" y="260" class="rl" transform="rotate(-90 182 260)" text-anchor="middle">uses</text>
-<path class="ln" d="M525,235 H625 V70 H720" marker-start="url(#many)" marker-end="url(#one)"/>
-<text x="650" y="135" class="rl">categorizes</text>
-<path class="ln" d="M815,110 V250" marker-start="url(#one)" marker-end="url(#many)"/>
-<text x="827" y="190" class="rl">has</text>
-<path class="ln" d="M525,330 H720" marker-start="url(#many)" marker-end="url(#one)"/>
-<text x="590" y="322" class="rl">classifies</text>
-<path class="ln" d="M425,434 V525 H560" marker-start="url(#many)" marker-end="url(#one)"/>
-<text x="440" y="500" class="rl">contains</text>
-<g><rect x="20" y="420" width="155" height="70" rx="6" fill="#e4f5e0" stroke="#5aa650" stroke-width="1.5"/><path d="M20,446 V426 a6,6 0 0 1 6,-6 H169 a6,6 0 0 1 6,6 V446 Z" fill="#b9e5b2" stroke="#5aa650" stroke-width="1.5"/><text x="97.5" y="437.5" text-anchor="middle" class="et">CONTRACTOR</text><text x="30" y="461" class="ea">ContractorID</text><text x="165" y="461" text-anchor="end" class="ek">PK</text><rect x="21" y="468" width="153" height="22" fill="#000" opacity=".05"/><text x="30" y="483" class="ea">ContractorName</text><text x="165" y="483" text-anchor="end" class="ek"></text></g>
-<g><rect x="230" y="40" width="195" height="70" rx="6" fill="#fde8f5" stroke="#d96bb5" stroke-width="1.5"/><path d="M230,66 V46 a6,6 0 0 1 6,-6 H419 a6,6 0 0 1 6,6 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="1.5"/><text x="327.5" y="57.5" text-anchor="middle" class="et">PERMITCONTRACTOR</text><text x="240" y="81" class="ea">PermitID</text><text x="415" y="81" text-anchor="end" class="ek">PK</text><rect x="231" y="88" width="193" height="22" fill="#000" opacity=".05"/><text x="240" y="103" class="ea">ContractorID</text><text x="415" y="103" text-anchor="end" class="ek">PK</text></g>
-<g><rect x="330" y="210" width="195" height="224" rx="6" fill="#fff4d2" stroke="#d9a900" stroke-width="1.5"/><path d="M330,236 V216 a6,6 0 0 1 6,-6 H519 a6,6 0 0 1 6,6 V236 Z" fill="#ffe49a" stroke="#d9a900" stroke-width="1.5"/><text x="427.5" y="227.5" text-anchor="middle" class="et">PERMIT</text><text x="340" y="251" class="ea">PermitID</text><text x="515" y="251" text-anchor="end" class="ek">PK</text><rect x="331" y="258" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="273" class="ea">CategoryID</text><text x="515" y="273" text-anchor="end" class="ek">FK</text><text x="340" y="295" class="ea">SubcategoryID</text><text x="515" y="295" text-anchor="end" class="ek">FK</text><rect x="331" y="302" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="317" class="ea">ParcelID</text><text x="515" y="317" text-anchor="end" class="ek">FK</text><text x="340" y="339" class="ea">PermitNo</text><text x="515" y="339" text-anchor="end" class="ek"></text><rect x="331" y="346" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="361" class="ea">IssueDate</text><text x="515" y="361" text-anchor="end" class="ek"></text><text x="340" y="383" class="ea">ExpirationDate</text><text x="515" y="383" text-anchor="end" class="ek"></text><rect x="331" y="390" width="193" height="22" fill="#000" opacity=".05"/><text x="340" y="405" class="ea">JobValue</text><text x="515" y="405" text-anchor="end" class="ek"></text><text x="340" y="427" class="ea">FeesCharged</text><text x="515" y="427" text-anchor="end" class="ek"></text></g>
-<g><rect x="720" y="40" width="190" height="70" rx="6" fill="#fde8f5" stroke="#d96bb5" stroke-width="1.5"/><path d="M720,66 V46 a6,6 0 0 1 6,-6 H904 a6,6 0 0 1 6,6 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="1.5"/><text x="815.0" y="57.5" text-anchor="middle" class="et">CATEGORY</text><text x="730" y="81" class="ea">CategoryID</text><text x="900" y="81" text-anchor="end" class="ek">PK</text><rect x="721" y="88" width="188" height="22" fill="#000" opacity=".05"/><text x="730" y="103" class="ea">CategoryName</text><text x="900" y="103" text-anchor="end" class="ek"></text></g>
-<g><rect x="720" y="250" width="190" height="92" rx="6" fill="#e6f0fc" stroke="#5a95de" stroke-width="1.5"/><path d="M720,276 V256 a6,6 0 0 1 6,-6 H904 a6,6 0 0 1 6,6 V276 Z" fill="#c6dcf8" stroke="#5a95de" stroke-width="1.5"/><text x="815.0" y="267.5" text-anchor="middle" class="et">SUBCATEGORY</text><text x="730" y="291" class="ea">SubcategoryID</text><text x="900" y="291" text-anchor="end" class="ek">PK</text><rect x="721" y="298" width="188" height="22" fill="#000" opacity=".05"/><text x="730" y="313" class="ea">CategoryID</text><text x="900" y="313" text-anchor="end" class="ek">FK</text><text x="730" y="335" class="ea">SubcategoryName</text><text x="900" y="335" text-anchor="end" class="ek"></text></g>
-<g><rect x="560" y="500" width="190" height="48" rx="6" fill="#f3e8fb" stroke="#a06ad0" stroke-width="1.5"/><path d="M560,526 V506 a6,6 0 0 1 6,-6 H744 a6,6 0 0 1 6,6 V526 Z" fill="#e3cdf5" stroke="#a06ad0" stroke-width="1.5"/><text x="655.0" y="517.5" text-anchor="middle" class="et">PARCEL</text><text x="570" y="541" class="ea">ParcelID</text><text x="740" y="541" text-anchor="end" class="ek">PK</text></g>
-</svg>
+<style>.et{font:600 18px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ea{font:400 17px 'Work Sans',system-ui,sans-serif;fill:#1f1b16}.ek{font:600 14px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.rl{font:italic 17px 'Work Sans',system-ui,sans-serif;fill:#6b6254}.ln{fill:none;stroke:#2b2622;stroke-width:2}</style>
+        <path class="ln" d="M420,126 V240" marker-start="url(#many)" marker-end="url(#one)"/>
+        <text x="434" y="190" class="rl">uses</text>
+        <path class="ln" d="M210,607 H240 V78 H270" marker-start="url(#one)" marker-end="url(#many)"/>
+        <text x="226" y="340" class="rl" transform="rotate(-90 226 340)" text-anchor="middle">uses</text>
+        <path class="ln" d="M550,270 H655 V78 H760" marker-start="url(#many)" marker-end="url(#one)"/>
+        <text x="668" y="175" class="rl">categorizes</text>
+        <path class="ln" d="M875,126 V300" marker-start="url(#one)" marker-end="url(#many)"/>
+        <text x="889" y="220" class="rl">has</text>
+        <path class="ln" d="M550,400 H760" marker-start="url(#many)" marker-end="url(#one)"/>
+        <text x="585" y="388" class="rl">classifies</text>
+        <path class="ln" d="M425,546 V673 H560" marker-start="url(#many)" marker-end="url(#one)"/>
+        <text x="440" y="650" class="rl">contains</text>
+        <g><rect x="10" y="560" width="200" height="96" rx="8" fill="#e4f5e0" stroke="#5aa650" stroke-width="2"/><path d="M10,596 V568 a8,8 0 0 1 8,-8 H202 a8,8 0 0 1 8,8 V596 Z" fill="#b9e5b2" stroke="#5aa650" stroke-width="2"/><text x="110.0" y="584.5" text-anchor="middle" class="et">CONTRACTOR</text><text x="22" y="617" class="ea">ContractorID</text><text x="198" y="617" text-anchor="end" class="ek">PK</text><rect x="11" y="626" width="198" height="30" fill="#000" opacity=".05"/><text x="22" y="647" class="ea">ContractorName</text><text x="198" y="647" text-anchor="end" class="ek"></text></g>
+        <g><rect x="270" y="30" width="250" height="96" rx="8" fill="#fde8f5" stroke="#d96bb5" stroke-width="2"/><path d="M270,66 V38 a8,8 0 0 1 8,-8 H512 a8,8 0 0 1 8,8 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="2"/><text x="395.0" y="54.5" text-anchor="middle" class="et">PERMITCONTRACTOR</text><text x="282" y="87" class="ea">PermitID</text><text x="508" y="87" text-anchor="end" class="ek">PK</text><rect x="271" y="96" width="248" height="30" fill="#000" opacity=".05"/><text x="282" y="117" class="ea">ContractorID</text><text x="508" y="117" text-anchor="end" class="ek">PK</text></g>
+        <g><rect x="300" y="240" width="250" height="306" rx="8" fill="#fff4d2" stroke="#d9a900" stroke-width="2"/><path d="M300,276 V248 a8,8 0 0 1 8,-8 H542 a8,8 0 0 1 8,8 V276 Z" fill="#ffe49a" stroke="#d9a900" stroke-width="2"/><text x="425.0" y="264.5" text-anchor="middle" class="et">PERMIT</text><text x="312" y="297" class="ea">PermitID</text><text x="538" y="297" text-anchor="end" class="ek">PK</text><rect x="301" y="306" width="248" height="30" fill="#000" opacity=".05"/><text x="312" y="327" class="ea">CategoryID</text><text x="538" y="327" text-anchor="end" class="ek">FK</text><text x="312" y="357" class="ea">SubcategoryID</text><text x="538" y="357" text-anchor="end" class="ek">FK</text><rect x="301" y="366" width="248" height="30" fill="#000" opacity=".05"/><text x="312" y="387" class="ea">ParcelID</text><text x="538" y="387" text-anchor="end" class="ek">FK</text><text x="312" y="417" class="ea">PermitNo</text><text x="538" y="417" text-anchor="end" class="ek"></text><rect x="301" y="426" width="248" height="30" fill="#000" opacity=".05"/><text x="312" y="447" class="ea">IssueDate</text><text x="538" y="447" text-anchor="end" class="ek"></text><text x="312" y="477" class="ea">ExpirationDate</text><text x="538" y="477" text-anchor="end" class="ek"></text><rect x="301" y="486" width="248" height="30" fill="#000" opacity=".05"/><text x="312" y="507" class="ea">JobValue</text><text x="538" y="507" text-anchor="end" class="ek"></text><text x="312" y="537" class="ea">FeesCharged</text><text x="538" y="537" text-anchor="end" class="ek"></text></g>
+        <g><rect x="760" y="30" width="230" height="96" rx="8" fill="#fde8f5" stroke="#d96bb5" stroke-width="2"/><path d="M760,66 V38 a8,8 0 0 1 8,-8 H982 a8,8 0 0 1 8,8 V66 Z" fill="#f8c4e4" stroke="#d96bb5" stroke-width="2"/><text x="875.0" y="54.5" text-anchor="middle" class="et">CATEGORY</text><text x="772" y="87" class="ea">CategoryID</text><text x="978" y="87" text-anchor="end" class="ek">PK</text><rect x="761" y="96" width="228" height="30" fill="#000" opacity=".05"/><text x="772" y="117" class="ea">CategoryName</text><text x="978" y="117" text-anchor="end" class="ek"></text></g>
+        <g><rect x="760" y="300" width="230" height="126" rx="8" fill="#e6f0fc" stroke="#5a95de" stroke-width="2"/><path d="M760,336 V308 a8,8 0 0 1 8,-8 H982 a8,8 0 0 1 8,8 V336 Z" fill="#c6dcf8" stroke="#5a95de" stroke-width="2"/><text x="875.0" y="324.5" text-anchor="middle" class="et">SUBCATEGORY</text><text x="772" y="357" class="ea">SubcategoryID</text><text x="978" y="357" text-anchor="end" class="ek">PK</text><rect x="761" y="366" width="228" height="30" fill="#000" opacity=".05"/><text x="772" y="387" class="ea">CategoryID</text><text x="978" y="387" text-anchor="end" class="ek">FK</text><text x="772" y="417" class="ea">SubcategoryName</text><text x="978" y="417" text-anchor="end" class="ek"></text></g>
+        <g><rect x="560" y="640" width="230" height="66" rx="8" fill="#f3e8fb" stroke="#a06ad0" stroke-width="2"/><path d="M560,676 V648 a8,8 0 0 1 8,-8 H782 a8,8 0 0 1 8,8 V676 Z" fill="#e3cdf5" stroke="#a06ad0" stroke-width="2"/><text x="675.0" y="664.5" text-anchor="middle" class="et">PARCEL</text><text x="572" y="697" class="ea">ParcelID</text><text x="778" y="697" text-anchor="end" class="ek">PK</text></g>
+        </svg>
         <figcaption>ER diagram: every table describes something a permit points to.</figcaption>
       </figure>
 
@@ -104,7 +104,7 @@
 
       <!-- ART: the query and its result. Swap images/permit-query.png to change it. -->
       <figure class="figure query">
-        <img src="images/permit-query.png" alt="MySQL query joining permits, parcels and businesses to total job value per business, with three businesses returned">
+        <a href="images/permit-query.png" target="_blank" rel="noopener"><img src="images/permit-query.png" alt="MySQL query joining permits, parcels and businesses to total job value per business, with three businesses returned"></a>
         <figcaption>One query: which businesses have more than $50,000 in total permit value.</figcaption>
       </figure>
 
@@ -113,7 +113,7 @@
 
       <!-- ART: database result. Swap images/permits-dashboard.jpg to change it. -->
       <figure class="figure result">
-        <img src="images/permits-dashboard.jpg" alt="Permits dashboard showing total permits by type, by month, a map of Texas, and total permits and fees for 2025">
+        <a href="images/permits-dashboard.jpg" target="_blank" rel="noopener"><img src="images/permits-dashboard.jpg" alt="Permits dashboard showing total permits by type, by month, a map of Texas, and total permits and fees for 2025"></a>
         <figcaption>The result: permit data from the database, shown as a dashboard.</figcaption>
       </figure>
     </main>
