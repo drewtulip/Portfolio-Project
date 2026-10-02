@@ -384,3 +384,4 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .case figcaption { margin-top: .6rem; font-family: var(--font-ui); font-size: .85rem; color: var(--pink); }
 .case figure.er figcaption { color: var(--gray); }
 @media (max-width: 820px) { .case-top.has-facts { grid-template-columns: 1fr; } }
+.case figure.figure.query img { max-width: 700px; }
