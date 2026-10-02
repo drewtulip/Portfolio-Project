@@ -421,3 +421,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 
 .foot-link { font-family: var(--font-display); font-size: 1.4rem; color: var(--red); text-decoration: none; }
 .foot-link:hover, .foot-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Duck next to the Permit Tracker title ---------- */
+.title-row { display: flex; align-items: center; gap: 1.1rem; }
+.title-duck { width: 84px; height: 84px; flex: none; border-radius: 50%; background: var(--cream); object-fit: contain; padding: 9px; }
