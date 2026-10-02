@@ -134,11 +134,11 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .hero-env {
   display: block;
   width: 100%;
-  aspect-ratio: 1414 / 2000;   /* same size as the night picture */
+  aspect-ratio: 4 / 5;   /* same size as the balloon panel; not too tall */
   padding: 0;
   border: 0;
   overflow: hidden;
-  background: var(--paper);
+  background: #f2e9d4;   /* matches the envelope video's paper color */
 }
 .hero-env video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-env:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
@@ -146,7 +146,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 /* ---------- Balloon lift ---------- */
 .hero-art {
   position: relative;
-  aspect-ratio: 1414 / 2000;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--ink);
 }
@@ -154,7 +154,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 /* balloon layer sits exactly where the balloon is in the full picture */
 .hero-art .balloon {
   position: absolute;
-  left: 26.874%; top: 45.250%; width: 48.091%; height: 47.750%;
+  left: 24.742%; top: 25.508%; width: 50.595%; height: 58.947%;
   transition: transform 1.4s cubic-bezier(.3, .7, .3, 1);
 }
 .hero-art.lifted .balloon { transform: translateY(-22%); }
@@ -280,7 +280,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .hero-env { position: relative; }
 .env-hint {
   position: absolute;
-  left: 0; right: 0; bottom: 18%;
+  left: 0; right: 0; bottom: 14%;
   text-align: center;
   font-family: var(--font-display);   /* same serif as the site headings */
   font-style: italic;
@@ -358,8 +358,5 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .project-grid a:focus-visible .tile-info { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tile-info { transition: none; } }
 
-/* ---------- Top panels: rounder corners, zoomed in closer on the art ---------- */
+/* ---------- Top panels: rounded corners ---------- */
 .hero-env, .hero-art { border-radius: 32px; }
-/* one shared zoom so the envelope and balloon panels match; raise 1.22 to zoom in more */
-.hero-art .zoom { position: absolute; inset: 0; transform: scale(1.22); transform-origin: 50% 90%; }
-.hero-env video { transform: scale(1.22); transform-origin: 50% 90%; }
