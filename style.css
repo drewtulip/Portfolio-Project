@@ -424,7 +424,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 
 /* ---------- Duck next to the Permit Tracker title ---------- */
 .title-row { display: flex; align-items: center; gap: 1.1rem; }
-.title-duck { width: 84px; height: 84px; flex: none; border-radius: 50%; background: var(--cream); object-fit: contain; padding: 9px; }
+.title-duck { height: 92px; width: auto; flex: none; }
 
 /* ---------- Information images (diagrams, screenshots): square corners, original shape ---------- */
 .case figure.figure.er,
