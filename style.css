@@ -396,9 +396,9 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .facts dt, .facts dd { font-size: 1.35rem; line-height: 1.35; }
 .facts dd.names { font-size: 1.2rem; }
 .case figure.figure { margin: 2rem 0; }
-.case figure.figure.er { max-width: 440px; padding: .75rem; }
+.case figure.figure.er { max-width: 320px; padding: .6rem; }
 .case figure.figure.query { max-width: 380px; }
 .case figure.figure.result { max-width: 400px; }
 .case figure.figure.query img { max-width: 100%; }
 .case figure.figure a { display: block; }
-.case figcaption { max-width: 440px; }
+.case figcaption { max-width: 380px; }
