@@ -723,3 +723,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 
 /* balloon tile: the exact cream from the palette (#F5EBD7) */
 .sk-art.on-cream { background: var(--cream); box-shadow: none; }
+
+/* "Resume" text link beside the social icons */
+.footer-band .social { align-items: center; }
+.footer-band .social a.resume-link { width: auto; height: auto; font-family: var(--font-display); font-size: 1.2rem; line-height: 1; margin-left: .4rem; padding-left: 1rem; border-left: 1px solid var(--line); }
