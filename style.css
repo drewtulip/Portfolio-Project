@@ -494,3 +494,15 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 }
 .about-list .row-right { text-align: right; }
 .about-list .row-right .row-role { display: block; }
+
+/* ---------- About page: compact lists beside the photo ---------- */
+.about-page { max-width: 1040px; }
+.about-top { grid-template-columns: minmax(0, 1fr) 280px; gap: 2.5rem; }
+.headshot-frame { position: sticky; top: 5rem; }
+.about-list { margin-top: 1.9rem; max-width: none; }
+.about-list h2 { font-size: 1.45rem; margin-bottom: .35rem; }
+.about-list li { padding: .6rem 0; gap: 1.2rem; }
+.about-list .row-name { font-size: 1.15rem; }
+.about-list .row-note { font-size: .9rem; margin-top: 0; }
+.about-list .row-role { font-size: 1rem; }
+.about-list .row-sub { font-size: .88rem; }
