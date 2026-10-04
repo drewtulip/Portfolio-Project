@@ -720,3 +720,6 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
   0%, 100% { transform: translateY(5%) rotate(-1.2deg); }
   50%      { transform: translateY(-5%) rotate(1.2deg); }
 }
+
+/* balloon tile: the exact cream from the palette (#F5EBD7) */
+.sk-art.on-cream { background: var(--cream); box-shadow: none; }
