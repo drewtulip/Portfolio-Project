@@ -553,3 +553,151 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .case figure.figure.figma, .case figure.figure.procreate { max-width: 440px; }
 .text-link { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; }
 .text-link:hover { color: var(--pink); }
+
+/* ============================================================
+   Sketchbook look: cream paper, red + black ink, no sidebar.
+   Every page has <body class="sketch">.
+   ============================================================ */
+.sketch {
+  --pink: #6b6254;    /* dim text is warm gray on cream */
+  --line: rgba(31, 27, 22, .18);
+  background: var(--cream);
+  color: var(--ink);
+}
+.sketch .page { display: block; max-width: 1100px; margin: 0 auto; min-height: 0; }
+.sketch h1 { color: var(--red); }
+
+/* top bar: Drew + tulip on the left, links on the right */
+.sketch .topnav {
+  background: var(--cream);
+  border-bottom: 0;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.sketch.home .topnav { justify-content: flex-end; }
+.sketch .nav-links { display: flex; gap: .4rem; }
+.sketch .topnav a:hover { border-color: var(--ink); }
+.sketch .topnav a[aria-current="page"] { background: var(--red); color: var(--cream); }
+.sketch .topnav .nav-mark {
+  display: flex; align-items: flex-end; gap: .3rem;
+  padding: 0; border: 0;
+  font-size: 2.2rem; line-height: 1; letter-spacing: 0; color: var(--red);
+}
+.sketch .topnav .nav-mark:hover { border: 0; }
+.sketch .nav-mark img { width: 22px; margin-bottom: .2rem; }
+
+/* stitching in red instead of white */
+.sketch .stitch-top {
+  margin: 0 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23a32e27' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  opacity: .55;
+}
+
+/* home: big name hero */
+.sk-hero { display: grid; grid-template-columns: auto minmax(0, 24rem); align-items: end; gap: .5rem 2.5rem; padding: 1.5rem 2rem 2.5rem; }
+.sk-name { display: flex; align-items: flex-end; gap: .6rem; margin: 0; font-size: clamp(5rem, 15vw, 10rem); line-height: .85; }
+.sk-name img { width: clamp(44px, 7vw, 76px); margin-bottom: .12em; }
+.sk-intro { padding-bottom: .4rem; }
+.sk-intro p { margin: 0; }
+.sk-quote { font-style: italic; font-size: 1.35rem; line-height: 1.35; margin-bottom: .6rem !important; }
+.sk-who { color: var(--gray); }
+
+/* home: three drawing tiles */
+.sk-work { padding: 2.2rem 2rem 3.5rem; scroll-margin-top: 4rem; }
+.sk-work h2 { font-size: 2rem; margin-bottom: 1.2rem; }
+.sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.sk-grid a { display: grid; gap: .55rem; align-content: start; text-decoration: none; }
+.sk-art { display: grid; place-items: center; aspect-ratio: 1; border-radius: var(--round); overflow: hidden; transition: transform .25s ease; }
+.sk-grid a:hover .sk-art, .sk-grid a:focus-visible .sk-art { transform: translateY(-4px) rotate(-1deg); }
+.sk-art.on-paper { background: #f3ead9; box-shadow: inset 0 0 0 1px var(--line); }
+.sk-art.on-red { background: var(--red); }
+.sk-art.on-ink { background: var(--ink); }
+.sk-art video, .sk-art .sk-fill { width: 100%; height: 100%; object-fit: cover; }
+.sk-duck { width: 52%; }
+.sk-title { font-family: var(--font-display); font-size: 1.4rem; line-height: 1.25; }
+.sk-grid a:hover .sk-title { color: var(--red); }
+.sk-sub { color: var(--gray); line-height: 1.4; }
+@media (prefers-reduced-motion: reduce) { .sk-art { transition: none; } }
+
+/* footer sits on the same paper, under a stitch line */
+.sketch .footer-band { max-width: 1100px; margin: 0 auto; padding-top: 0; }
+.sketch .footer-band .stitch-top { margin: 0 0 1.5rem; }
+.sketch .footer-band.slim { border-top: 1px solid var(--line); }
+
+/* lines, cards and buttons that were drawn for the red page */
+.sketch .about-list ul, .sketch .about-list li,
+.sketch .design-section,
+.sketch .case.centered .eyebrow:not(.first) { border-color: var(--line); }
+.sketch .swatch { border-color: var(--line); }
+.sketch .facts { background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.sketch .headshot-frame { background: var(--white); box-shadow: 0 0 0 1px var(--line); }
+.sketch .cta-link { background: var(--red); color: var(--cream); }
+.sketch .cta-link.outline { background: transparent; color: var(--red); border-color: var(--red); }
+.sketch .case figure.figure.er { box-shadow: inset 0 0 0 1px var(--line); }
+.sketch .ph { background: #e8dcc4; }
+
+@media (max-width: 820px) {
+  .sketch .topnav { padding: .8rem 1.25rem; flex-wrap: wrap; }
+  .sketch .stitch-top { margin-inline: 1.25rem; }
+  .sk-hero { grid-template-columns: 1fr; padding-inline: 1.25rem; }
+  .sk-work { padding-inline: 1.25rem; }
+  .sk-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Sketchbook: pieces brought back from the old homepage ---------- */
+/* @ lines and clock in the intro */
+.sk-intro .handle { margin: 0 0 .5rem; }
+.sk-intro .handle span { display: inline; margin-left: .3rem; color: var(--gray); }
+.sk-intro .local { margin-top: .9rem; }
+.sk-intro .local-time { color: var(--red); }
+
+/* envelope + balloon, a little smaller, under the name */
+.sketch .sk-scene { grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: start; padding: 0 2rem 2.5rem; }
+.sketch .hero-env { box-shadow: inset 0 0 0 1px var(--line); }
+.sketch .env-hint { font-size: 1.5rem; }
+.sketch .hero-env:focus-visible { outline-color: var(--red); }
+
+/* hover cards on the drawing tiles */
+.sk-art { position: relative; }
+.sk-art .tile-info { padding: 1rem 1.6rem; font-size: clamp(1rem, 1.5vw, 1.25rem); box-shadow: inset 0 0 0 1px var(--line); border-radius: inherit; }
+.sk-grid a:hover .tile-info, .sk-grid a:focus-visible .tile-info { opacity: 1; }
+@media (hover: none) { .sk-art .tile-info { display: none; } }
+
+@media (max-width: 820px) {
+  .sketch .sk-scene { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: 1.25rem; gap: .8rem; }
+  .sketch .env-hint { font-size: 1.05rem; bottom: 4%; }
+}
+
+/* ---------- Red again: same simple layout, red page, cream ink ---------- */
+.sketch {
+  --pink: #f0c9c0;
+  --line: rgba(245, 235, 215, .28);
+  background: var(--red);
+  color: var(--cream);
+}
+.sketch h1, .sk-name { color: var(--cream); }
+.sketch .topnav { background: var(--red); }
+.sketch .topnav a:hover { border-color: var(--cream); }
+.sketch .topnav a[aria-current="page"] { background: var(--cream); color: var(--red); }
+.sketch .topnav .nav-mark { color: var(--cream); }
+.sketch .stitch-top {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  opacity: .35;
+}
+.sk-who, .sk-sub, .sk-intro .handle span { color: var(--pink); }
+.sk-intro .local-time { color: var(--cream); }
+.sk-grid a:hover .sk-title { color: var(--cream); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.sk-art.on-paper { box-shadow: none; }
+.sk-art.on-ink { box-shadow: inset 0 0 0 1px var(--line); }
+.sk-art .tile-info { box-shadow: none; }
+/* footer goes back to the cream band */
+.sketch .footer-band { max-width: none; background: var(--cream); color: var(--ink); padding-top: 1.5rem; }
+.sketch .footer-band .stitch-top { display: none; }
+.sketch .footer-band.slim { border-top: 0; }
+.sketch .footer-band .farm { margin-right: max(6%, calc((100% - 1100px) / 2 + 2rem)); }
+.sketch .footer-band .social { max-width: 1100px; margin-inline: auto; padding-right: 2rem; }
+.sketch .facts { background: var(--cream); box-shadow: none; }
+.sketch .headshot-frame { background: var(--cream); box-shadow: none; }
+.sketch .cta-link { background: var(--cream); color: var(--red); }
+.sketch .cta-link.outline { background: transparent; color: var(--cream); border-color: var(--cream); }
+.sketch .ph { background: var(--ph); }
