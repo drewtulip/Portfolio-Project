@@ -709,3 +709,14 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .facts { padding: 1.2rem 1.4rem; gap: .95rem; }
 .facts dt { font-size: .8rem; }
 .facts dd, .facts dd.names { font-size: 1.15rem; }
+
+/* ---------- Home: the hot air balloon hovers on a loop ---------- */
+.sk-art .sk-balloon {
+  width: 56%; height: auto; max-height: 86%; object-fit: contain;
+  animation: balloon-hover 3.8s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+@keyframes balloon-hover {
+  0%, 100% { transform: translateY(5%) rotate(-1.2deg); }
+  50%      { transform: translateY(-5%) rotate(1.2deg); }
+}
