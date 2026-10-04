@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design choices — Drew</title>
+  <!-- Link preview card (shows when the site is shared). Address: drewlamonica.org. -->
+  <meta name="description" content="Drew — IT + graphic design. I make things that are easy to use and a little bit lovely.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Design choices — Drew">
+  <meta property="og:description" content="I make things that are easy to use and a little bit lovely.">
+  <meta property="og:image" content="https://drewlamonica.org/images/preview-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://drewlamonica.org/images/preview-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=IM+Fell+French+Canon:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <!-- Sidebar (same on every page) -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <a class="wordmark" href="/">Drew</a>
+      <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
+      <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
+      <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
+      <div class="local" aria-label="Local time">
+        <span class="local-time" data-time>--:--</span>
+      </div>
+      <img class="tulip" src="images/tulip.png" alt="">
+    </div>
+  </aside>
+
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/#projects">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <main class="content design-page">
+      <h1>Design choices</h1>
+      <p class="design-intro">A quick look at the colors, type and artwork behind this site.</p>
+
+      <section class="design-section">
+        <h2>Color</h2>
+        <p>Four core colors do almost everything: page red, cream, black ink and turkey red. The rest are quiet supporting shades.</p>
+        <ul class="swatches">
+          <li><span class="swatch" style="background:#A32E27"></span><span class="sw-name">Page red</span><span class="sw-hex">#A32E27</span><span class="sw-use">The background of every page.</span></li>
+          <li><span class="swatch" style="background:#F5EBD7"></span><span class="sw-name">Cream</span><span class="sw-hex">#F5EBD7</span><span class="sw-use">Text on red, buttons, the footer and the envelope.</span></li>
+          <li><span class="swatch" style="background:#1F1B16"></span><span class="sw-name">Black ink</span><span class="sw-hex">#1F1B16</span><span class="sw-use">The night scene, the tulip and text on cream.</span></li>
+          <li><span class="swatch" style="background:#B5302A"></span><span class="sw-name">Turkey red</span><span class="sw-hex">#B5302A</span><span class="sw-use">Tiny accents, like the balloon band.</span></li>
+          <li><span class="swatch" style="background:#FBF3E4"></span><span class="sw-name">Light paper</span><span class="sw-hex">#FBF3E4</span><span class="sw-use">The envelope and soft highlights.</span></li>
+          <li><span class="swatch" style="background:#F0C9C0"></span><span class="sw-name">Soft pink</span><span class="sw-hex">#F0C9C0</span><span class="sw-use">Dimmer text on the red background.</span></li>
+          <li><span class="swatch" style="background:#6B6254"></span><span class="sw-name">Warm gray</span><span class="sw-hex">#6B6254</span><span class="sw-use">Captions and labels on cream.</span></li>
+        </ul>
+      </section>
+
+      <section class="design-section">
+        <h2>Type</h2>
+        <div class="type-row">
+          <p class="type-sample display">Drew</p>
+          <p class="type-label">IM Fell French Canon, for my name, headings and navigation.</p>
+        </div>
+        <div class="type-row">
+          <p class="type-sample body">I make things that are easy to use and a little bit lovely.</p>
+          <p class="type-label">IM Fell DW Pica, for everything you read.</p>
+        </div>
+      </section>
+
+      <section class="design-section">
+        <h2>Artwork</h2>
+        <p>The drawings are all my own, and they repeat across the site so it feels like one place.</p>
+        <ul class="art-grid">
+          <li><span class="art-tile on-cream"><img src="images/tulip.png" alt=""></span><span class="art-name">The tulip</span><span class="art-use">The mark in the sidebar, the browser tab icon and the link preview card.</span></li>
+          <li><span class="art-tile full"><img src="images/envelope-preview.jpg" alt=""></span><span class="art-name">The envelope</span><span class="art-use">Opens on the home page to start the balloon.</span></li>
+          <li><span class="art-tile full"><img src="images/balloon-preview.jpg" alt=""></span><span class="art-name">The hot air balloon</span><span class="art-use">Lifts up when the envelope opens.</span></li>
+          <li><span class="art-tile on-cream"><img src="images/farm-duck.png" alt=""></span><span class="art-name">The duck</span><span class="art-use">Hops in the footer scene and sits beside a project title.</span></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="footer-band slim">
+  <a class="foot-link" href="/">&larr; Home</a>
+  <a class="foot-link" href="about.html">About me &rarr;</a>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
