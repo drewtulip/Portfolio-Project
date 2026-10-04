@@ -51,7 +51,22 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// Looping videos (like the bird tile) stay still for visitors who prefer reduced motion.
-if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  document.querySelectorAll("video.loop-video").forEach((v) => { v.removeAttribute("autoplay"); v.pause(); });
-}
+// Looping videos (the bird tile) always play and always loop, for every visitor.
+// Some browsers pause or block autoplay (Low Power Mode, data saver, background tabs),
+// so we start them from script, restart them if they ever stop, and retry on the first touch/scroll.
+document.querySelectorAll("video.loop-video").forEach((v) => {
+  v.muted = true;
+  v.loop = true;
+  v.playsInline = true;
+
+  const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
+  v.addEventListener("ended", () => { v.currentTime = 0; play(); });
+  v.addEventListener("pause", () => { if (!document.hidden && !v.ended) setTimeout(play, 150); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) play(); });
+  ["pointerdown", "touchstart", "scroll", "keydown"].forEach((evt) =>
+    window.addEventListener(evt, play, { once: true, passive: true })
+  );
+
+  play();
+});
