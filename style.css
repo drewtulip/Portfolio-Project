@@ -550,7 +550,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 @media (max-width: 820px) { .design-page { padding-inline: 1.25rem; } }
 
 /* ---------- How I Built this Website: figures and text link ---------- */
-.case figure.figure.figma, .case figure.figure.procreate { max-width: 440px; }
+.case figure.figure.figma, .case figure.figure.procreate, .case figure.figure.tracker { max-width: 440px; }
 .text-link { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; }
 .text-link:hover { color: var(--pink); }
 
