@@ -22,66 +22,41 @@
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=IM+Fell+French+Canon:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="sketch home">
 <div class="page">
-  <!-- Sidebar (same on every page) -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <a class="wordmark" href="/">Drew</a>
-      <p class="tagline">"I make things that are easy to use and a little bit lovely."</p>
-      <p class="handle"><b>@UTTyler –</b><span>IT + Graphic Design</span></p>
-      <p class="handle"><b>@Performing Arts –</b><span>Assistant</span></p>
-      <div class="local" aria-label="Local time">
-        <span class="local-time" data-time>--:--</span>
-      </div>
-      <img class="tulip" src="images/tulip.png" alt="">
-    </div>
-  </aside>
-
   <div class="main">
     <nav class="topnav" aria-label="Main">
+      <span class="nav-links">
       <a href="/" aria-current="page">Home</a>
       <a href="/#projects">Projects</a>
       <a href="about.html">About</a>
+      </span>
     </nav>
+
+    <!-- Hero: big name with the tulip, quote beside it -->
+    <header class="sk-hero">
+      <h1 class="sk-name">Drew<img src="images/tulip.png" alt=""></h1>
+      <div class="sk-intro">
+        <p class="sk-quote">"I make things that are easy to use and a little bit lovely."</p>
+        <p class="handle"><b>@UTTyler ~</b><span>IT + Graphic Design</span></p>
+        <p class="handle"><b>@Performing Arts ~</b><span>Assistant</span></p>
+        <div class="local" aria-label="Local time"><span class="local-time" data-time>--:--</span></div>
+      </div>
+    </header>
 
     <div class="stitch-top"></div>
 
-    <!-- Hero: envelope (left) and night picture (right), same size. -->
-    <section class="hero">
-      <!-- ART 1: envelope animation. Click it to play, then the balloon lifts. Swap the video in images/ to change it. -->
-      <button class="hero-env" id="lift-toggle" type="button" aria-pressed="false" aria-controls="night" aria-label="Open the envelope">
-        <video id="envelope" muted playsinline preload="auto" poster="images/envelope-poster.jpg">
-          <source src="images/envelope.mp4" type="video/mp4">
-          <source src="images/envelope.webm" type="video/webm">
-        </video>
-        <span class="env-hint" aria-hidden="true">Open me!</span>
-      </button>
-      <!-- ART 2: balloon scene = background (night-bg.jpg) + balloon layer (balloon-lift.png) + wind lines -->
-      <div class="hero-art" id="night">
-        <img class="night-bg" src="images/night-bg.jpg" alt="">
-        <div class="air" aria-hidden="true">
-          <span class="air-line" style="left:14%;top:52%;animation-delay:0s"></span>
-          <span class="air-line" style="left:21%;top:62%;animation-delay:1.2s"></span>
-          <span class="air-line" style="left:79%;top:62%;animation-delay:0.6s"></span>
-          <span class="air-line" style="left:86%;top:52%;animation-delay:1.8s"></span>
-        </div>
-        <img class="balloon" src="images/balloon-lift.png" alt="A hot air balloon at night">
-      </div>
-    </section>
-
-    <section class="selected" id="projects">
-      <h2>Selected Projects</h2>
-      <div class="project-grid">
-        <!-- Each tile links to a project page. Add more by copying an <a>. -->
+    <section class="sk-work" id="projects">
+      <h2>Projects</h2>
+      <div class="sk-grid">
+        <!-- Each tile = one drawing + title + one line. Add more by copying an <a>. -->
         <a href="project-sauce-demo.html">
-          <!-- ART: looping bird animation. Swap images/bird-loop.mp4 / .webm to change it. -->
-          <div class="ph">
+          <div class="sk-art on-paper">
             <video class="loop-video" autoplay muted loop playsinline preload="auto" poster="images/bird-poster.jpg">
               <source src="images/bird-loop.mp4" type="video/mp4">
               <source src="images/bird-loop.webm" type="video/webm">
             </video>
-            <!-- Hover card: edit these four lines -->
+          
             <dl class="tile-info">
               <div><dt>Role</dt><dd>QA Tester</dd></div>
               <div><dt>Tools</dt><dd>Jira, Google Sheets</dd></div>
@@ -89,13 +64,11 @@
               <div><dt>Time length</dt><dd>2 weeks</dd></div>
             </dl>
           </div>
-          <span class="tile-tag">Quality assurance</span>
-          <span class="tile-title">QA Case Study: SauceDemo</span>
-          <span class="tile-sub">Testing an online store and documenting the bugs I found</span>
+          <span class="sk-title">QA Case Study: SauceDemo</span>
+          <span class="sk-sub">Testing an online store and writing up the bugs I found</span>
         </a>
         <a href="project-permit-tracker.html">
-          <div class="ph">
-            <!-- Hover card: edit these four lines -->
+          <div class="sk-art on-paper"><img class="sk-fill" src="images/permits-dashboard.jpg" alt="">
             <dl class="tile-info">
               <div><dt>Role</dt><dd>Database Designer</dd></div>
               <div><dt>Tools</dt><dd>MySQL, ER diagrams</dd></div>
@@ -103,13 +76,11 @@
               <div><dt>Time length</dt><dd>1 semester</dd></div>
             </dl>
           </div>
-          <span class="tile-tag">Database · Team project</span>
-          <span class="tile-title">East Texas Permit Tracker</span>
-          <span class="tile-sub">Designing a database to track building permits</span>
+          <span class="sk-title">East Texas Permit Tracker</span>
+          <span class="sk-sub">Designing a database to track building permits</span>
         </a>
-        <a href="project-this-website.html" class="wide">
-          <div class="ph">
-            <!-- Hover card: edit these four lines -->
+        <a href="project-this-website.html">
+          <div class="sk-art on-ink"><img class="sk-fill" src="images/balloon-preview.jpg" alt="">
             <dl class="tile-info">
               <div><dt>Role</dt><dd>Designer + Developer</dd></div>
               <div><dt>Tools</dt><dd>Figma, Procreate, HTML &amp; CSS</dd></div>
@@ -117,17 +88,16 @@
               <div><dt>Time length</dt><dd>6 weeks</dd></div>
             </dl>
           </div>
-          <span class="tile-tag">Design · Development</span>
-          <span class="tile-title">How I Built This Website</span>
-          <span class="tile-sub">Designing and coding this portfolio from scratch</span>
+          <span class="sk-title">How I Built This Website</span>
+          <span class="sk-sub">Drawing the art and coding this portfolio from scratch</span>
         </a>
       </div>
     </section>
-
   </div>
 </div>
 
 <footer class="footer-band">
+  <div class="stitch-top"></div>
   <!-- Farm scene (right side, vertically centered). The duck is its own layer so it can hop. -->
   <div class="farm">
     <img class="farm-scene" src="images/farm-scene.png" alt="A red barn with two clouds">
