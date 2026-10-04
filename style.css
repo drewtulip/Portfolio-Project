@@ -701,3 +701,11 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .sketch .cta-link { background: var(--cream); color: var(--red); }
 .sketch .cta-link.outline { background: transparent; color: var(--cream); border-color: var(--cream); }
 .sketch .ph { background: var(--ph); }
+/* ---------- Project pages: calmer text sizes ---------- */
+.case p, .case li { font-size: 1.1rem; line-height: 1.65; }
+.case.centered h2.sec-title { font-size: 1.55rem; }
+.case .eyebrow { font-size: .9rem; }
+.case-top.has-facts { grid-template-columns: 1fr 260px; }
+.facts { padding: 1.2rem 1.4rem; gap: .95rem; }
+.facts dt { font-size: .8rem; }
+.facts dd, .facts dd.names { font-size: 1.15rem; }
