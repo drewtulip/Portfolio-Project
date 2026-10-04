@@ -553,3 +553,12 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 .case figure.figure.figma, .case figure.figure.procreate { max-width: 440px; }
 .text-link { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; }
 .text-link:hover { color: var(--pink); }
+
+/* ---------- Project pages: calmer text sizes ---------- */
+.case p, .case li { font-size: 1.1rem; line-height: 1.65; }
+.case.centered h2.sec-title { font-size: 1.55rem; }
+.case .eyebrow { font-size: .9rem; }
+.case-top.has-facts { grid-template-columns: 1fr 260px; }
+.facts { padding: 1.2rem 1.4rem; gap: .95rem; }
+.facts dt { font-size: .8rem; }
+.facts dd, .facts dd.names { font-size: 1.15rem; }
