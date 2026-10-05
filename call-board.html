@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Board: Task Tracker &amp; QA Case Study — Drew</title>
+  <!-- Link preview card (shows when the site is shared). Address: drewlamonica.org. -->
+  <meta name="description" content="Drew — IT + graphic design. I make things that are easy to use and a little bit lovely.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Call Board: Task Tracker &amp; QA Case Study — Drew">
+  <meta property="og:description" content="I make things that are easy to use and a little bit lovely.">
+  <meta property="og:image" content="https://drewlamonica.org/images/preview-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://drewlamonica.org/images/preview-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=IM+Fell+French+Canon:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sketch">
+<div class="page">
+
+  <div class="main">
+    <nav class="topnav" aria-label="Main">
+      <a class="nav-mark" href="/">Drew<img src="images/tulip.png" alt=""></a>
+      <span class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#projects" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+      </span>
+    </nav>
+
+    <main class="content case centered">
+      <div class="case-top has-facts">
+        <div>
+          <h1>Call Board:<br>Task Tracker &amp;<br>QA Case Study</h1>
+          <p class="eyebrow first">The problem</p>
+          <h2 class="sec-title">Everything lived in group texts</h2>
+          <p>Our front desk team prepares for every concert and recital: printing programs, reserving tables, hanging posters, and posting on social media. We tracked all of it through memory and group texts, so things got missed and nobody knew which post was going up next.</p>
+        </div>
+        <!-- Project facts (edit these lines) -->
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Developer and QA tester (solo project)</dd></div>
+          <div><dt>Users</dt><dd>Me and two other student staff at the Performing Arts front desk</dd></div>
+          <div><dt>Timeline</dt><dd>1 week, October 2026</dd></div>
+          <div><dt>Tools</dt><dd>HTML, CSS, JavaScript, Playwright, GitHub Actions, Chrome DevTools, Claude (AI assistant)</dd></div>
+          <div><dt>Result</dt><dd>v1.0 shipped, 10 bugs found and fixed in v1.1, 33 automated tests running in CI</dd></div>
+        </dl>
+      </div>
+
+      <p class="eyebrow">Process</p>
+      <h2 class="sec-title">Build it, then test it like a real release</h2>
+      <p>I built a task and social-post tracker for the Performing Arts front desk, then tested it the way a QA tester would. It passed all 18 scripted test cases, but exploratory, boundary and accessibility testing still found 10 bugs. I logged, fixed and retested each one, and backed every fix with an automated regression test.</p>
+
+      <section class="step">
+        <h3><span class="step-n">1</span>Gathered requirements</h3>
+        <ul>
+          <li>Wrote 8 user stories with priorities (Must / Should) and acceptance criteria</li>
+          <li>Every later test case traces back to one of these stories</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">2</span>Designed and built the app (v1.0)</h3>
+        <ul>
+          <li>Designed a two-table data model: Performances, and Tasks linked to a performance (drawing on my database coursework)</li>
+          <li>Built four features in plain HTML, CSS and JavaScript: a performances overview with progress bars, a page for each performance with filters, add/edit/complete/delete for tasks, and an &ldquo;Up Next&rdquo; social media queue</li>
+          <li>Saved data in the browser so anyone can try it from a link without logging in</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">3</span>Planned the testing</h3>
+        <ul>
+          <li>Wrote a test plan covering scope, approach, environments, a severity scale, and entry and exit criteria</li>
+          <li>Wrote 18 test cases from the user stories, each with exact steps and expected results</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">4</span>Executed the tests and hunted for bugs</h3>
+        <ul>
+          <li>Ran all 18 test cases: <em>all passed</em></li>
+          <li>Then went beyond the script with <em>exploratory testing</em> (undoing actions, switching pages with filters on), <em>boundary testing</em> (longest titles, past dates), <em>negative testing</em> (damaged data, HTML typed into fields), <em>date testing</em> with a frozen clock, and an <em>accessibility review</em> (keyboard-only use, screen reader labels, WCAG color contrast)</li>
+          <li>Found <em>10 bugs</em>: 2 high, 7 medium, 1 low</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">5</span>Reported the bugs</h3>
+        <ul>
+          <li>Wrote each one up with steps to reproduce, expected and actual results, severity, environment and impact</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">6</span>Fixed and retested (v1.1)</h3>
+        <ul>
+          <li>For each bug, wrote an automated test first and confirmed it <em>failed on v1.0</em>, which proves the test really catches the bug</li>
+          <li>Fixed the code, then confirmed the test <em>passed on v1.1</em></li>
+          <li>Added a guard test so one fix didn&rsquo;t overcorrect (blocking past dates on new tasks, while still allowing edits to overdue ones)</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">7</span>Automated the regression suite</h3>
+        <ul>
+          <li>33 Playwright tests (18 functional, 15 regression), each run on a desktop and a phone-sized browser</li>
+          <li>Froze the clock in every test so date-based results are the same on any day</li>
+          <li>Set up GitHub Actions to run the full suite automatically on every push</li>
+        </ul>
+      </section>
+      <section class="step">
+        <h3><span class="step-n">8</span>Documented and released</h3>
+        <ul>
+          <li>Wrote release notes for v1.0 and v1.1, linking each fix to its bug ID</li>
+          <li>Wrote this case study</li>
+        </ul>
+      </section>
+
+      <p class="eyebrow">Highlights</p>
+      <h2 class="sec-title">Four things worth telling</h2>
+      <h3 class="hl-title">The bug that didn&rsquo;t look like a bug.</h3>
+      <p>Checking an &ldquo;In progress&rdquo; task and then unchecking it reset it to &ldquo;To do.&rdquo; Nothing looked broken, but the team&rsquo;s information was now wrong. I found it by asking &ldquo;what happens if I undo this?&rdquo;</p>
+      <h3 class="hl-title">One long word broke the phone layout.</h3>
+      <p>A pasted Instagram link as a task title made the page 1,542 pixels wide on a phone.</p>
+      <h3 class="hl-title">Testing the future.</h3>
+      <p>By freezing the clock at a future date, I saw what a recruiter would see next year: every show still &ldquo;upcoming&rdquo; and every task overdue. I made the demo data relative to today so it never goes stale.</p>
+      <h3 class="hl-title">Accessibility.</h3>
+      <p>Measured contrast showed the keyboard focus ring at 1.6:1 (WCAG requires 3:1) and finished tasks at 2.4:1 (requires 4.5:1). Keyboard focus also jumped to the top of the page after every checkbox. All are fixed.</p>
+
+      <p class="eyebrow">Results</p>
+      <h2 class="sec-title">From v1.0 to v1.1</h2>
+      <table class="case-table">
+        <thead><tr><th></th><th>v1.0</th><th>v1.1</th></tr></thead>
+        <tbody>
+          <tr><th>Scripted test cases</th><td>18 of 18 pass</td><td>18 of 18 pass</td></tr>
+          <tr><th>Known bugs</th><td>10</td><td>0 open</td></tr>
+          <tr><th>Regression tests</th><td>14 of 15 fail*</td><td>15 of 15 pass</td></tr>
+          <tr><th>Automated runs (desktop + phone)</th><td>n/a</td><td>66 of 66 pass</td></tr>
+        </tbody>
+      </table>
+      <p class="table-note">* The 15th is a guard test that passes on both versions by design.</p>
+
+      <p class="eyebrow">Skills</p>
+      <h2 class="sec-title">What this shows</h2>
+      <table class="case-table">
+        <thead><tr><th>Skill</th><th>Where it shows</th></tr></thead>
+        <tbody>
+          <tr><th>Requirements and acceptance criteria</th><td>8 user stories with priorities and acceptance criteria</td></tr>
+          <tr><th>Test planning and test case design</th><td>Test plan, 28 traceable test cases</td></tr>
+          <tr><th>Exploratory, boundary and negative testing</th><td>10 bugs the scripted cases missed</td></tr>
+          <tr><th>Bug reporting and severity</th><td>Reproducible reports with steps, expected and actual results</td></tr>
+          <tr><th>Test automation</th><td>33 Playwright tests, frozen clock, two screen sizes</td></tr>
+          <tr><th>CI/CD</th><td>GitHub Actions on every push</td></tr>
+          <tr><th>Accessibility (WCAG 2.1 AA)</th><td>Keyboard, screen reader and contrast fixes</td></tr>
+          <tr><th>Regression testing</th><td>A failing test before every fix, passing after</td></tr>
+          <tr><th>Documentation</th><td>Test plan, bug log, release notes, case study</td></tr>
+          <tr><th>Using AI tools effectively</th><td>Worked with Claude to speed up building and testing, then verified and understood every result</td></tr>
+        </tbody>
+      </table>
+
+      <p class="eyebrow">What I learned</p>
+      <h2 class="sec-title">Passing isn&rsquo;t the same as working</h2>
+      <ul class="plain-list">
+        <li>Passing test cases isn&rsquo;t the same as working software. Every one of the 10 bugs came from testing beyond the script.</li>
+        <li>A regression test should fail before the fix, or it isn&rsquo;t proving anything.</li>
+        <li>Anything that depends on dates needs a controllable clock to be testable.</li>
+        <li>A good bug report lets someone else reproduce the problem in a minute.</li>
+      </ul>
+
+      <p class="eyebrow">What&rsquo;s next</p>
+      <h2 class="sec-title">Shared data and more testing</h2>
+      <ul class="plain-list">
+        <li>Shared data (a small database) so the whole team sees the same board</li>
+        <li>Manual testing on Safari for iPhone and with VoiceOver</li>
+        <li>An automated accessibility scanner (axe) in the test suite</li>
+      </ul>
+    </main>
+  </div>
+</div>
+
+<footer class="footer-band slim">
+  <a class="foot-link" href="/">&larr; Home</a>
+  <a class="foot-link" href="project-permit-tracker.html">Next project &rarr;</a>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
