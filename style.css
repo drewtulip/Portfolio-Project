@@ -727,3 +727,17 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 /* "Resume" text link beside the social icons */
 .footer-band .social { align-items: center; }
 .footer-band .social a.resume-link { width: auto; height: auto; font-family: var(--font-display); font-size: 1.2rem; line-height: 1; margin-left: .4rem; padding-left: 1rem; border-left: 1px solid var(--line); }
+
+/* ---------- Call Board case study ---------- */
+.case .step { margin-top: 1.6rem; }
+.case .step h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; margin: 0 0 .4rem; display: flex; align-items: baseline; gap: .7rem; }
+.case .step-n { font-family: var(--font-ui); font-size: .85rem; letter-spacing: .1em; opacity: .75; min-width: 1.2rem; }
+.case .step ul, .case .plain-list { margin: 0; padding-left: 1.4rem; max-width: 66ch; }
+.case .step li, .case .plain-list li { margin-bottom: .4rem; }
+.case em { font-style: italic; }
+.case .hl-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin: 1.4rem 0 .2rem; }
+.case-table { width: 100%; max-width: 760px; border-collapse: collapse; margin: .5rem 0 0; font-family: var(--font-ui); font-size: 1.02rem; line-height: 1.4; }
+.case-table th, .case-table td { text-align: left; vertical-align: top; padding: .65rem .9rem .65rem 0; border-bottom: 1px solid rgba(245, 235, 215, .28); font-weight: 400; }
+.case-table thead th { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.case-table tbody th { width: 38%; font-family: var(--font-display); font-size: 1.1rem; }
+.case .table-note { font-size: .92rem; opacity: .8; margin-top: .6rem; }
