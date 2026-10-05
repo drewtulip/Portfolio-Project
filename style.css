@@ -752,3 +752,12 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
   text-decoration: none;
 }
 .footer-band .social a.resume-link:hover, .footer-band .social a.resume-link:focus-visible { color: var(--turkey); transform: none; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Resume link: smaller, sits to the left of the LinkedIn icon */
+.footer-band .social a.resume-link {
+  font-size: .68rem;
+  margin-left: 0; margin-right: .35rem;
+  padding-left: 0; padding-right: 1rem;
+  border-left: 0;
+  border-right: 1px solid rgba(31, 27, 22, .3);
+}
