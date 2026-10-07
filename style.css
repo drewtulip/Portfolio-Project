@@ -764,3 +764,7 @@ a, button, summary, [role="button"], label, input, select, textarea, .hero-env {
 
 /* Tall/portrait videos: fill the square tile and crop evenly instead of overflowing */
 .sk-art video.tall { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Permit tile: whole drawing centered on the cream background */
+.sk-art.on-cream-tile { background: #f4ebd6; /* matches the video backdrop exactly, so no seam */  box-shadow: none; }
+.sk-art video.tall { object-fit: contain; transform: scale(1.2); }
